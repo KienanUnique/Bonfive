@@ -12,6 +12,7 @@ namespace Assets.Script.Player
         private static readonly int RespawnHash = Animator.StringToHash("Respawn");
         private static readonly int IsMovingHash = Animator.StringToHash("IsMoving");
         private static readonly int UseActionHash = Animator.StringToHash("UseAction");
+        private static readonly int TakeHitHash = Animator.StringToHash("Take Hit");
         private bool _isFacingRight;
         private bool _isMoving;
 
@@ -31,7 +32,8 @@ namespace Assets.Script.Player
 
         public void StartMovingAnimation(Vector2 direction)
         {
-            if(!_isMoving){
+            if (!_isMoving)
+            {
                 _isMoving = true;
                 _animator.SetBool(IsMovingHash, true);
             }
@@ -43,7 +45,8 @@ namespace Assets.Script.Player
 
         public void StartIdleAnimation()
         {
-            if(_isMoving){
+            if (_isMoving)
+            {
                 _isMoving = false;
                 _animator.SetBool(IsMovingHash, false);
             }
@@ -64,6 +67,11 @@ namespace Assets.Script.Player
         public void StartUseActionAnimation()
         {
             _animator.SetTrigger(UseActionHash);
+        }
+
+        public void StartTakeHitAnimation()
+        {
+            _animator.SetTrigger(TakeHitHash);
         }
 
         public void PlayUseAnimation(InputAction.CallbackContext callbackContext)

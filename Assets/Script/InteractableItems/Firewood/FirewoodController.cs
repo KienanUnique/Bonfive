@@ -14,7 +14,7 @@ namespace Assets.Script.InteractableItems.Firewood
         private void Awake()
         {
             _firewoodMovement = GetComponent<FirewoodMovement>();
-            _firewoodVisual =  GetComponent<FirewoodVisual>();
+            _firewoodVisual = GetComponent<FirewoodVisual>();
             _rigidbody2D = GetComponent<Rigidbody2D>();
         }
         public void ProcessEnterToPlayerReachebleZone()
