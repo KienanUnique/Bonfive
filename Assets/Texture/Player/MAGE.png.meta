@@ -46,139 +46,139 @@ TextureImporter:
     second: GREETING_5
   - first:
       213: 1919669459232851015
-    second: MAGE_14
+    second: MOVE_0
   - first:
       213: 7097307357791219051
-    second: GREETING_6
+    second: MOVE_0
   - first:
       213: 6422078834746576206
-    second: GREETING_7
+    second: MOVE_0
   - first:
       213: 1811334531646188930
-    second: MAGE_17
+    second: MOVE_1
   - first:
       213: 7342972828611859723
-    second: WALK_0
+    second: MOVE_2
   - first:
       213: 5829074074761819432
-    second: WALK_1
+    second: MOVE_3
   - first:
       213: 7641088306917528597
-    second: WALK_2
+    second: MOVE_4
   - first:
       213: -8941243080875809333
-    second: WALK_3
+    second: MOVE_5
   - first:
       213: -6982821343675605507
-    second: WALK_4
+    second: MOVE_6
   - first:
       213: 2394618549583496993
-    second: WALK_5
+    second: ATTACK_1_0
   - first:
       213: -7762565191989685714
-    second: WALK_6
+    second: ATTACK_1_1
   - first:
       213: -6159272488207855409
-    second: MAGE_25
+    second: ATTACK_1_2
   - first:
       213: -3761832158491883677
-    second: MAGE_26
+    second: ATTACK_1_3
   - first:
       213: -562155709124758703
-    second: MAGE_27
+    second: ATTACK_1_4
   - first:
       213: 2982414775741275446
-    second: MAGE_28
+    second: ATTACK_1_5
   - first:
       213: 1984852383825961342
-    second: MAGE_29
+    second: ATTACK_1_6
   - first:
       213: -896651443411679493
-    second: MAGE_30
+    second: ATTACK_1_7
   - first:
       213: 6792921366998615295
-    second: MAGE_31
+    second: ATTACK_2_0
   - first:
       213: -8259481324624395698
-    second: MAGE_32
+    second: ATTACK_2_1
   - first:
       213: -7046184978203355502
-    second: MAGE_33
+    second: ATTACK_2_2
   - first:
       213: 5170491828713739254
-    second: MAGE_34
+    second: ATTACK_2_3
   - first:
       213: 7063556457357373918
-    second: MAGE_35
+    second: ATTACK_2_4
   - first:
       213: -788258406832953240
-    second: MAGE_36
+    second: ATTACK_2_5
   - first:
       213: 5349256031784750809
-    second: MAGE_37
+    second: ATTACK_2_6
   - first:
       213: 1190844332148056734
-    second: MAGE_38
+    second: ATTACK_2_7
   - first:
       213: 684770572394653139
-    second: MAGE_39
+    second: ATTACK_3_0
   - first:
       213: -8726381696930968354
-    second: MAGE_40
+    second: ATTACK_3_1
   - first:
       213: -4258407259127372709
-    second: MAGE_41
+    second: ATTACK_3_2
   - first:
       213: 7538483302123412448
-    second: MAGE_42
+    second: JUMP_0
   - first:
       213: 5258480447720518115
-    second: MAGE_43
+    second: JUMP_1
   - first:
       213: 1433879062810793924
-    second: MAGE_44
+    second: JUMP_2
   - first:
       213: -5179304920704336759
-    second: MAGE_45
+    second: JUMP_3
   - first:
       213: 6252497630606802909
-    second: MAGE_46
+    second: JUMP_4
   - first:
       213: -6422228009378026316
-    second: MAGE_47
+    second: ATTACK_4_0
   - first:
       213: 3498147119172675854
-    second: MAGE_48
+    second: ATTACK_4_1
   - first:
       213: -6180010782421045140
-    second: MAGE_49
+    second: ATTACK_4_2
   - first:
       213: 939278880078168800
-    second: MAGE_50
+    second: ATTACK_4_3
   - first:
       213: -7318415120066152172
-    second: MAGE_51
+    second: DIE_0
   - first:
       213: 4249555239184446040
-    second: MAGE_52
+    second: DIE_1
   - first:
       213: 5504760180581891242
-    second: MAGE_53
+    second: DIE_2
   - first:
       213: 4644738963875282344
-    second: MAGE_54
+    second: DIE_3
   - first:
       213: 6494574568301495104
-    second: MAGE_55
+    second: DIE_4
   - first:
       213: 7508592287662824670
-    second: MAGE_56
+    second: DIE_5
   - first:
       213: -6966555404987530356
-    second: MAGE_57
+    second: DIE_6
   - first:
       213: -5369475688922761355
-    second: MAGE_58
+    second: DIE_7
   - first:
       213: 383739699065512724
     second: MAGE_59
@@ -335,12 +335,12 @@ TextureImporter:
       name: IDLE_0
       rect:
         serializedVersion: 2
-        x: 16
+        x: 0
         y: 512
-        width: 27
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -356,12 +356,12 @@ TextureImporter:
       name: IDLE_1
       rect:
         serializedVersion: 2
-        x: 80
+        x: 64
         y: 512
-        width: 26
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -377,12 +377,12 @@ TextureImporter:
       name: IDLE_2
       rect:
         serializedVersion: 2
-        x: 145
+        x: 128
         y: 512
-        width: 25
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -398,12 +398,12 @@ TextureImporter:
       name: IDLE_3
       rect:
         serializedVersion: 2
-        x: 211
+        x: 192
         y: 512
-        width: 23
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -419,12 +419,12 @@ TextureImporter:
       name: IDLE_4
       rect:
         serializedVersion: 2
-        x: 275
+        x: 256
         y: 512
-        width: 23
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -440,12 +440,12 @@ TextureImporter:
       name: IDLE_5
       rect:
         serializedVersion: 2
-        x: 337
+        x: 320
         y: 512
-        width: 25
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -461,12 +461,12 @@ TextureImporter:
       name: IDLE_6
       rect:
         serializedVersion: 2
-        x: 400
+        x: 384
         y: 512
-        width: 26
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -482,12 +482,12 @@ TextureImporter:
       name: IDLE_7
       rect:
         serializedVersion: 2
-        x: 464
+        x: 448
         y: 512
-        width: 27
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -503,12 +503,12 @@ TextureImporter:
       name: GREETING_0
       rect:
         serializedVersion: 2
-        x: 16
+        x: 0
         y: 448
-        width: 26
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -524,12 +524,12 @@ TextureImporter:
       name: GREETING_1
       rect:
         serializedVersion: 2
-        x: 79
+        x: 64
         y: 448
-        width: 26
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -545,12 +545,12 @@ TextureImporter:
       name: GREETING_2
       rect:
         serializedVersion: 2
-        x: 142
+        x: 128
         y: 448
-        width: 27
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -566,12 +566,12 @@ TextureImporter:
       name: GREETING_3
       rect:
         serializedVersion: 2
-        x: 205
+        x: 192
         y: 448
-        width: 29
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -587,12 +587,12 @@ TextureImporter:
       name: GREETING_4
       rect:
         serializedVersion: 2
-        x: 270
+        x: 256
         y: 448
-        width: 27
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -608,12 +608,12 @@ TextureImporter:
       name: GREETING_5
       rect:
         serializedVersion: 2
-        x: 333
+        x: 320
         y: 448
-        width: 30
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -626,15 +626,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GREETING_6
+      name: GREETING_7
       rect:
         serializedVersion: 2
-        x: 398
+        x: 448
         y: 448
-        width: 27
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -647,15 +647,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GREETING_7
+      name: MOVE_0
       rect:
         serializedVersion: 2
-        x: 461
-        y: 448
-        width: 30
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 384
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -668,15 +668,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WALK_0
+      name: MOVE_2
       rect:
         serializedVersion: 2
-        x: 18
+        x: 128
         y: 384
-        width: 24
-        height: 25
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -689,15 +689,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WALK_1
+      name: MOVE_3
       rect:
         serializedVersion: 2
-        x: 84
+        x: 192
         y: 384
-        width: 21
-        height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -710,15 +710,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WALK_2
+      name: MOVE_4
       rect:
         serializedVersion: 2
-        x: 149
+        x: 256
         y: 384
-        width: 20
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -731,15 +731,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WALK_3
+      name: MOVE_5
       rect:
         serializedVersion: 2
-        x: 213
+        x: 320
         y: 384
-        width: 20
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -752,15 +752,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WALK_4
+      name: MOVE_6
       rect:
         serializedVersion: 2
-        x: 276
+        x: 384
         y: 384
-        width: 21
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -773,15 +773,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WALK_5
+      name: ATTACK_1_0
       rect:
         serializedVersion: 2
-        x: 339
-        y: 384
-        width: 23
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 320
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -794,15 +794,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WALK_6
+      name: ATTACK_1_1
       rect:
         serializedVersion: 2
-        x: 404
-        y: 384
-        width: 22
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 64
+        y: 320
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -815,15 +815,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_25
+      name: ATTACK_1_2
       rect:
         serializedVersion: 2
-        x: 16
-        y: 319
-        width: 26
-        height: 25
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 128
+        y: 320
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -836,15 +836,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_26
+      name: ATTACK_1_3
       rect:
         serializedVersion: 2
-        x: 78
-        y: 319
-        width: 28
-        height: 30
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 192
+        y: 320
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -857,15 +857,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_27
+      name: ATTACK_1_4
       rect:
         serializedVersion: 2
-        x: 142
-        y: 319
-        width: 29
-        height: 33
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 256
+        y: 320
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -878,15 +878,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_29
+      name: ATTACK_1_6
       rect:
         serializedVersion: 2
-        x: 213
-        y: 319
-        width: 36
-        height: 26
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 384
+        y: 320
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -899,15 +899,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_30
+      name: ATTACK_1_7
       rect:
         serializedVersion: 2
-        x: 278
-        y: 319
-        width: 39
-        height: 26
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 448
+        y: 320
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -920,15 +920,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_31
+      name: ATTACK_2_0
       rect:
         serializedVersion: 2
-        x: 342
-        y: 319
-        width: 37
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 256
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -941,15 +941,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_32
+      name: ATTACK_2_1
       rect:
         serializedVersion: 2
-        x: 406
-        y: 319
-        width: 42
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 64
+        y: 256
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -962,15 +962,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_33
+      name: ATTACK_2_2
       rect:
         serializedVersion: 2
-        x: 465
-        y: 319
-        width: 26
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 128
+        y: 256
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -983,15 +983,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_34
+      name: ATTACK_2_3
       rect:
         serializedVersion: 2
-        x: 10
-        y: 255
-        width: 33
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 192
+        y: 256
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1004,15 +1004,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_35
+      name: ATTACK_2_4
       rect:
         serializedVersion: 2
-        x: 74
-        y: 255
-        width: 33
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 256
+        y: 256
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1025,15 +1025,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_36
+      name: ATTACK_2_5
       rect:
         serializedVersion: 2
-        x: 142
-        y: 255
-        width: 43
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 320
+        y: 256
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1046,15 +1046,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_37
+      name: ATTACK_2_6
       rect:
         serializedVersion: 2
-        x: 214
-        y: 255
-        width: 27
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 384
+        y: 256
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1067,15 +1067,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_38
+      name: ATTACK_2_7
       rect:
         serializedVersion: 2
-        x: 278
-        y: 255
-        width: 20
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 448
+        y: 256
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1088,15 +1088,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_39
+      name: ATTACK_3_0
       rect:
         serializedVersion: 2
-        x: 339
-        y: 256
-        width: 22
-        height: 34
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1109,15 +1109,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_40
+      name: ATTACK_3_1
       rect:
         serializedVersion: 2
-        x: 405
-        y: 255
-        width: 36
-        height: 30
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 64
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1130,15 +1130,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_41
+      name: ATTACK_3_2
       rect:
         serializedVersion: 2
-        x: 470
-        y: 255
-        width: 40
-        height: 26
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 128
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1151,15 +1151,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_42
+      name: JUMP_0
       rect:
         serializedVersion: 2
-        x: 22
-        y: 191
-        width: 38
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1172,15 +1172,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_43
+      name: JUMP_1
       rect:
         serializedVersion: 2
-        x: 87
-        y: 191
-        width: 41
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1193,15 +1193,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_44
+      name: JUMP_2
       rect:
         serializedVersion: 2
-        x: 144
-        y: 191
-        width: 27
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1214,15 +1214,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_45
+      name: JUMP_3
       rect:
         serializedVersion: 2
-        x: 18
-        y: 127
-        width: 23
-        height: 28
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1235,15 +1235,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_46
+      name: JUMP_4
       rect:
         serializedVersion: 2
-        x: 81
+        x: 256
         y: 128
-        width: 21
-        height: 28
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1256,15 +1256,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_47
+      name: ATTACK_4_0
       rect:
         serializedVersion: 2
-        x: 145
-        y: 130
-        width: 26
-        height: 34
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1277,15 +1277,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_48
+      name: ATTACK_4_1
       rect:
         serializedVersion: 2
-        x: 210
-        y: 128
-        width: 25
-        height: 36
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1298,15 +1298,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_49
+      name: ATTACK_4_2
       rect:
         serializedVersion: 2
-        x: 275
-        y: 128
-        width: 24
-        height: 36
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 128
+        y: 65
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1319,15 +1319,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_50
+      name: ATTACK_4_3
       rect:
         serializedVersion: 2
-        x: 15
-        y: 63
-        width: 28
-        height: 29
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1340,15 +1340,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_51
+      name: DIE_0
       rect:
         serializedVersion: 2
-        x: 79
-        y: 63
-        width: 26
-        height: 33
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1361,15 +1361,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_52
+      name: DIE_1
       rect:
         serializedVersion: 2
-        x: 104
-        y: 75
-        width: 5
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1382,15 +1382,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_53
+      name: DIE_2
       rect:
         serializedVersion: 2
-        x: 151
-        y: 63
-        width: 31
-        height: 26
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1403,15 +1403,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_54
+      name: DIE_3
       rect:
         serializedVersion: 2
-        x: 214
-        y: 63
-        width: 32
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1424,169 +1424,148 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_59
+      name: GREETING_6
       rect:
         serializedVersion: 2
-        x: 17
-        y: 0
-        width: 25
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 384
+        y: 448
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 413e3012931535500800000000000000
-      internalID: 383739699065512724
+      spriteID: 7448dbbc33904aa10800000000000000
+      internalID: 1919669459232851015
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_60
+      name: MOVE_1
       rect:
         serializedVersion: 2
-        x: 82
-        y: 0
-        width: 25
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 64
+        y: 384
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50f8473b954646fb0800000000000000
-      internalID: -4655485778368622843
+      spriteID: 28d6b20e827232910800000000000000
+      internalID: 1811334531646188930
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_61
+      name: ATTACK_1_5
       rect:
         serializedVersion: 2
-        x: 142
-        y: 0
-        width: 32
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 320
+        y: 320
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56087ce487b192800800000000000000
-      internalID: 588031429880283237
+      spriteID: 63d5fe0ef6aa36920800000000000000
+      internalID: 2982414775741275446
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_63
+      name: DIE_4
       rect:
         serializedVersion: 2
-        x: 204
+        x: 256
         y: 0
-        width: 31
-        height: 29
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a44edf41ccfdebb20800000000000000
-      internalID: 3152202856824431690
+      spriteID: 04385eef82d512a50800000000000000
+      internalID: 6494574568301495104
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_66
+      name: DIE_5
       rect:
         serializedVersion: 2
-        x: 332
+        x: 320
         y: 0
-        width: 31
-        height: 49
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1924eeb81e5799260800000000000000
-      internalID: 7104839498729407121
+      spriteID: edc516547e0e33860800000000000000
+      internalID: 7508592287662824670
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_67
+      name: DIE_6
       rect:
         serializedVersion: 2
-        x: 387
+        x: 384
         y: 0
-        width: 41
-        height: 57
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce2b8f6be495565c0800000000000000
-      internalID: -4222870880977898772
+      spriteID: c8304a105c2d15f90800000000000000
+      internalID: -6966555404987530356
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAGE_69
+      name: DIE_7
       rect:
         serializedVersion: 2
-        x: 266
+        x: 448
         y: 0
-        width: 33
-        height: 41
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f000041658dd12460800000000000000
-      internalID: 7215291642956218383
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MAGE_71
-      rect:
-        serializedVersion: 2
-        x: 470
-        y: 0
-        width: 22
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: af07a26a96e6bbe70800000000000000
-      internalID: 9132014069462233338
+      spriteID: 577b9a34f4acb75b0800000000000000
+      internalID: -5369475688922761355
       vertices: []
       indices: 
       edges: []

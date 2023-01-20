@@ -40,7 +40,7 @@ TextureImporter:
     second: forest_decoration_11
   - first:
       213: -1657435733216884159
-    second: forest_decoration_12
+    second: FIREWOOD_1
   - first:
       213: -1832404122940966045
     second: forest_decoration_13
@@ -52,10 +52,10 @@ TextureImporter:
     second: forest_decoration_15
   - first:
       213: 7100646879256989780
-    second: forest_decoration_16
+    second: FIREWOOD_0
   - first:
       213: 6218963154056329206
-    second: forest_decoration_17
+    second: FIREWOOD_2
   - first:
       213: -134409953459851550
     second: forest_decoration_18
@@ -431,18 +431,25 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_decoration_12
+      name: FIREWOOD_1
       rect:
         serializedVersion: 2
         x: 16
         y: 1
         width: 15
         height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 2.5, y: 7}
+        - {x: -7.5, y: -3}
+        - {x: -7.5, y: -7}
+        - {x: -1.5, y: -7}
+        - {x: 7.5, y: 2}
+        - {x: 7.5, y: 4.7993593}
+        - {x: 5.5, y: 7}
       tessellationDetail: 0
       bones: []
       spriteID: 14a819b6bfa9ff8e0800000000000000
@@ -515,18 +522,25 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_decoration_16
+      name: FIREWOOD_0
       rect:
         serializedVersion: 2
         x: 3
         y: 3
         width: 10
         height: 9
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 0, y: 4.5}
+        - {x: -5, y: -0.5}
+        - {x: -5, y: -4.5}
+        - {x: 0, y: -4.5}
+        - {x: 5, y: 0.5}
+        - {x: 5, y: 2.5}
+        - {x: 3, y: 4.5}
       tessellationDetail: 0
       bones: []
       spriteID: 450599147b09a8260800000000000000
@@ -536,18 +550,26 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_decoration_17
+      name: FIREWOOD_2
       rect:
         serializedVersion: 2
         x: 33
         y: 1
         width: 15
         height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -5.5, y: 7}
+        - {x: -7.5, y: 5}
+        - {x: -7.5, y: 3}
+        - {x: 1.5, y: -7}
+        - {x: 7.5, y: -7}
+        - {x: 7.5, y: -3}
+        - {x: 5.5, y: -1}
+        - {x: -2.5, y: 7}
       tessellationDetail: 0
       bones: []
       spriteID: 6f735c40a023e4650800000000000000

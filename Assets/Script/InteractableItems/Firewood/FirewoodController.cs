@@ -4,7 +4,7 @@ namespace Assets.Script.InteractableItems.Firewood
 {
     [RequireComponent(typeof(FirewoodMovement))]
     [RequireComponent(typeof(FirewoodVisual))]
-    [RequireComponent(typeof(BoxCollider2D))]
+    [RequireComponent(typeof(PolygonCollider2D))]
     [RequireComponent(typeof(Rigidbody2D))]
     public class FirewoodController : MonoBehaviour
     {

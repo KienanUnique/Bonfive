@@ -61,6 +61,11 @@ namespace Assets.Script.Player
             _animator.SetTrigger(RespawnHash);
         }
 
+        public void StartUseActionAnimation()
+        {
+            _animator.SetTrigger(UseActionHash);
+        }
+
         public void PlayUseAnimation(InputAction.CallbackContext callbackContext)
         {
             _animator.SetTrigger(UseActionHash);

@@ -48,6 +48,7 @@ namespace Assets.Script.Player
 
         private void OnUseActionPerformed()
         {
+            _playerVisual.StartUseActionAnimation();
             _playerInteractionWithWorld.TryInterractWithObjectsInReachableZone();
         }
         private void OnEnable()
