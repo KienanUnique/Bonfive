@@ -8,6 +8,8 @@ namespace Assets.Script.InteractableItems.Firewood
     [RequireComponent(typeof(Rigidbody2D))]
     public class FirewoodController : MonoBehaviour
     {
+        public delegate void OnDestroyedInFire();
+        public event OnDestroyedInFire DestroyedInFire;
         private Rigidbody2D _rigidbody2D;
         private FirewoodMovement _firewoodMovement;
         private FirewoodVisual _firewoodVisual;
@@ -40,6 +42,11 @@ namespace Assets.Script.InteractableItems.Firewood
             _firewoodVisual.ProcessDropDown();
             _rigidbody2D.simulated = true;
             _rigidbody2D.velocity = Vector2.zero;
+        }
+
+        public void DestroyInFire(){
+            DestroyedInFire?.Invoke();
+            Destroy(gameObject);
         }
 
     }

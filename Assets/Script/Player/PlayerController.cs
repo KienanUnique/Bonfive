@@ -15,6 +15,14 @@ namespace Assets.Script.Player
         private PlayerVisual _playerVisual;
         private PlayerInteractionWithWorld _playerInteractionWithWorld;
 
+        public void Heal(int countOfHP){
+            Debug.Log($"Heal on: {countOfHP} HP");
+        }
+
+        public void TakeHit(int countOfHP){
+            _playerVisual.StartTakeHitAnimation();
+            Debug.Log(-1 * countOfHP);
+        }
 
         private void Awake()
         {

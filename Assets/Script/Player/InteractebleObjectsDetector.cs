@@ -28,7 +28,5 @@ namespace Assets.Script.Player
                 _firewoodControllers.Remove(interactableItemController);
             }
         }
-
-
     }
 }

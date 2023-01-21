@@ -14,13 +14,32 @@ namespace Assets.Script.Player
             if (_pickedUpFirewood == null && _interactebleObjectsDetector.HasFirewoodInReachebleZone)
             {
                 _pickedUpFirewood = _interactebleObjectsDetector.FirewoodInReachebleZone;
+                _pickedUpFirewood.DestroyedInFire += OnFirewoodDestroyedInFire;
                 _pickedUpFirewood.ProcessPickUp(transform);
             }
             else if (_pickedUpFirewood != null)
             {
+                _pickedUpFirewood.DestroyedInFire -= OnFirewoodDestroyedInFire;
                 _pickedUpFirewood.ProcessDrop();
                 _pickedUpFirewood = null;
             }
+        }
+
+        private void OnEnable() {
+            if (_pickedUpFirewood != null){
+                _pickedUpFirewood.DestroyedInFire += OnFirewoodDestroyedInFire;
+            }
+        }
+
+        private void OnDisable() {
+            if (_pickedUpFirewood != null){
+                _pickedUpFirewood.DestroyedInFire -= OnFirewoodDestroyedInFire;
+            }
+        }
+
+        private void OnFirewoodDestroyedInFire(){
+            _pickedUpFirewood.DestroyedInFire -= OnFirewoodDestroyedInFire;
+            _pickedUpFirewood = null;
         }
     }
 }
