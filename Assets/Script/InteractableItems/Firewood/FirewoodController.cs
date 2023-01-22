@@ -13,12 +13,6 @@ namespace Assets.Script.InteractableItems.Firewood
         private Rigidbody2D _rigidbody2D;
         private FirewoodMovement _firewoodMovement;
         private FirewoodVisual _firewoodVisual;
-        private void Awake()
-        {
-            _firewoodMovement = GetComponent<FirewoodMovement>();
-            _firewoodVisual = GetComponent<FirewoodVisual>();
-            _rigidbody2D = GetComponent<Rigidbody2D>();
-        }
 
         public void ProcessPickUp(Transform targetToFollow)
         {
@@ -38,6 +32,21 @@ namespace Assets.Script.InteractableItems.Firewood
         public void DestroyInFire(){
             DestroyedInFire?.Invoke();
             Destroy(gameObject);
+        }
+
+        private void Awake()
+        {
+            _firewoodMovement = GetComponent<FirewoodMovement>();
+            _firewoodVisual = GetComponent<FirewoodVisual>();
+            _rigidbody2D = GetComponent<Rigidbody2D>();
+        }
+
+        private void Start() {
+            GameController.GlobalFirewoodsRegistrator.Add(this);
+        }
+
+        private void OnDestroy() {
+            GameController.GlobalFirewoodsRegistrator.Remove(this);
         }
 
     }

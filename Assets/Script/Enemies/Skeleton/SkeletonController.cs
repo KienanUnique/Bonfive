@@ -14,6 +14,7 @@ public class SkeletonController : MonoBehaviour
     [SerializeField] private float _nextWaypointDistance;
     [SerializeField] private float _pathUpdateIntervalSeconds;
     [SerializeField] private float _attackCooldownSeconds;
+    private Transform _targetTransform;
     private EnemyController _enemyController;
     private EnemyMoving _enemyMoving;
     private EnemyCharacter _enemyCharacter;
@@ -21,6 +22,8 @@ public class SkeletonController : MonoBehaviour
     private Path _currentPath;
     private int _currentWaypointIndex;
     private bool _canAttack = true;
+    private bool _wasInitialized = false;
+
     private void Awake()
     {
         _enemyController = GetComponent<EnemyController>();
@@ -37,6 +40,10 @@ public class SkeletonController : MonoBehaviour
 
     private void OnEnable()
     {
+        if(!_wasInitialized){
+            _enemyController.Initialize += OnInitialize;
+        }
+        _enemyController.Initialize += OnInitialize;
         _enemyVisual.AttackAnimationHitMomentStart += OnAttackAnimationHitMomentStart;
         _enemyController.AcceptedDisableMovingRequest += OnAcceptedDisableMovingRequest;
         _enemyController.AcceptedEnableMovingRequest += OnAcceptedEnableMovingRequest;
@@ -44,9 +51,19 @@ public class SkeletonController : MonoBehaviour
 
     private void OnDisable()
     {
+        if(!_wasInitialized){
+            _enemyController.Initialize -= OnInitialize;
+        }
         _enemyVisual.AttackAnimationHitMomentStart -= OnAttackAnimationHitMomentStart;
         _enemyController.AcceptedDisableMovingRequest -= OnAcceptedDisableMovingRequest;
         _enemyController.AcceptedEnableMovingRequest -= OnAcceptedEnableMovingRequest;
+    }
+
+    private void OnInitialize(Transform targetTransform)
+    {
+        _targetTransform = targetTransform;
+        _wasInitialized = true;
+        _enemyController.Initialize -= OnInitialize;
     }
 
     private void Update()
@@ -86,7 +103,7 @@ public class SkeletonController : MonoBehaviour
     {
         if (_seeker.IsDone())
         {
-            _seeker.StartPath(transform.position, GameController.Instance.Player.CurrentPosition, OnPathComplete);
+            _seeker.StartPath(transform.position, _targetTransform.position, OnPathComplete);
         }
     }
 
@@ -122,12 +139,14 @@ public class SkeletonController : MonoBehaviour
         }
     }
 
-    private void OnAcceptedDisableMovingRequest(){
+    private void OnAcceptedDisableMovingRequest()
+    {
         _enemyVisual.DisableMoving();
         _enemyMoving.DisableMoving();
     }
 
-    private void OnAcceptedEnableMovingRequest(){
+    private void OnAcceptedEnableMovingRequest()
+    {
         _enemyVisual.EnableMoving();
         _enemyMoving.EnableMoving();
     }
