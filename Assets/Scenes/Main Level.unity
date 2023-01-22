@@ -3082,16 +3082,6 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 1581272000}
-    - target: {fileID: 8899636935014530185, guid: 704a6bc6661eeb94a9709e1a9bbdf8db,
-        type: 3}
-      propertyPath: _maximumEnemiesCount
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8899636935014530185, guid: 704a6bc6661eeb94a9709e1a9bbdf8db,
-        type: 3}
-      propertyPath: _maximumFirewoodsCount
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 704a6bc6661eeb94a9709e1a9bbdf8db, type: 3}
 --- !u!1001 &257913620

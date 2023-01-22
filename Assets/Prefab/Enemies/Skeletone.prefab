@@ -370,7 +370,7 @@ MonoBehaviour:
   _nextWaypointDistance: 1
   _pathUpdateIntervalSeconds: 0.6
   _attackCooldownSeconds: 1
-  _secondsBeforeDestroy: 5
+  _secondsBeforeDestroy: 3
 --- !u!61 &223736585
 BoxCollider2D:
   m_ObjectHideFlags: 0

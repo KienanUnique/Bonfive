@@ -44,3 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
+  _maximumEnemiesCount: 5
+  _maximumFirewoodsCount: 3
+  _soulsCountForWinning: 4

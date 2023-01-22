@@ -6,11 +6,13 @@ public class GameController : MonoBehaviour
     [SerializeField] private PlayerController _player;
     [SerializeField] private int _maximumEnemiesCount;
     [SerializeField] private int _maximumFirewoodsCount;
+    [SerializeField] private int _soulsCountForWinning;
     public static Transform PlayerTransform;
     public static EnemiesRegistrator GlobalEnemiesRegistrator { get; private set; }
     public static FirewoodsRegistrator GlobalFirewoodsRegistrator { get; private set; }
     public static EnemySpawnersRegistrator GlobalEnemySpawnersRegistrator { get; private set; }
     public static FirewoodSpawnersRegistrator GlobalFirewoodSpawnersRegistrator { get; private set; }
+    private static EnemiesSoulsCounter _enemiesSoulsCounter;
     public static GameController Instance = null;
 
     private void Awake()
@@ -35,22 +37,42 @@ public class GameController : MonoBehaviour
         GlobalFirewoodsRegistrator = new FirewoodsRegistrator();
         GlobalEnemySpawnersRegistrator = new EnemySpawnersRegistrator();
         GlobalFirewoodSpawnersRegistrator = new FirewoodSpawnersRegistrator();
+        _enemiesSoulsCounter = new EnemiesSoulsCounter(_soulsCountForWinning);
     }
 
     private void OnEnable()
     {
-        GlobalEnemiesRegistrator.ObjectAdd += ControlEnemiesCount;
-        GlobalEnemiesRegistrator.ObjectRemove += ControlEnemiesCount;
-        GlobalFirewoodsRegistrator.ObjectAdd += ControlFirewoodsCount;
-        GlobalFirewoodsRegistrator.ObjectRemove += ControlFirewoodsCount;
+        GlobalEnemiesRegistrator.ObjectAdd += OnEnemieAdd;
+        GlobalEnemiesRegistrator.ObjectRemove += OnEnemieRemove;
+        GlobalFirewoodsRegistrator.ObjectAdd += OnFirewoodCountChange;
+        GlobalFirewoodsRegistrator.ObjectRemove += OnFirewoodCountChange;
+        _enemiesSoulsCounter.NeedSoulsCountReach += OnNeedSoulsCountReach;
     }
 
     private void OnDisable()
     {
-        GlobalEnemiesRegistrator.ObjectAdd -= ControlEnemiesCount;
-        GlobalEnemiesRegistrator.ObjectRemove -= ControlEnemiesCount;
-        GlobalFirewoodsRegistrator.ObjectAdd -= ControlFirewoodsCount;
-        GlobalFirewoodsRegistrator.ObjectRemove -= ControlFirewoodsCount;
+        GlobalEnemiesRegistrator.ObjectAdd -= OnEnemieAdd;
+        GlobalEnemiesRegistrator.ObjectRemove -= OnEnemieRemove;
+        GlobalFirewoodsRegistrator.ObjectAdd -= OnFirewoodCountChange;
+        GlobalFirewoodsRegistrator.ObjectRemove -= OnFirewoodCountChange;
+        _enemiesSoulsCounter.NeedSoulsCountReach -= OnNeedSoulsCountReach;
+    }
+
+    private void OnNeedSoulsCountReach(){
+        Debug.Log("NeedSoulsCountReach");
+    }
+
+    private void OnFirewoodCountChange(){
+        ControlFirewoodsCount();
+    }
+
+    private void OnEnemieAdd(){
+        ControlEnemiesCount();
+    }
+
+    private void OnEnemieRemove(){
+        _enemiesSoulsCounter.AddSoul();
+        ControlEnemiesCount();
     }
 
     private void ControlEnemiesCount()
