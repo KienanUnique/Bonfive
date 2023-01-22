@@ -9,7 +9,7 @@ namespace Assets.Script.InteractableItems.Firewood
     public class FirewoodController : MonoBehaviour
     {
         public delegate void OnDestroyedInFire();
-        public event OnDestroyedInFire DestroyedInFire;
+        public event OnDestroyedInFire Destroyed;
         private Rigidbody2D _rigidbody2D;
         private FirewoodMovement _firewoodMovement;
         private FirewoodVisual _firewoodVisual;
@@ -40,8 +40,6 @@ namespace Assets.Script.InteractableItems.Firewood
 
         public void DestroyInFire()
         {
-            _isDestroyed = true;
-            DestroyedInFire?.Invoke();
             Destroy(gameObject);
         }
 
@@ -59,6 +57,8 @@ namespace Assets.Script.InteractableItems.Firewood
 
         private void OnDestroy()
         {
+            _isDestroyed = true;
+            Destroyed?.Invoke();
             GameController.GlobalFirewoodsRegistrator.Remove(this);
         }
 

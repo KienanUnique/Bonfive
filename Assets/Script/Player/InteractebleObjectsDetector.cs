@@ -10,7 +10,12 @@ namespace Assets.Script.Player
     {
         private List<FirewoodController> _firewoodControllers = new List<FirewoodController>();
         public bool HasFirewoodInReachebleZone => _firewoodControllers.Count != 0;
-        public FirewoodController FirewoodInReachebleZone => _firewoodControllers[0];
+        public FirewoodController FirewoodInReachebleZone => _firewoodControllers[_firewoodControllers.Count - 1];
+
+        public void RemoveDestroyedFirewoodFromList(FirewoodController destroyedFirewood)
+        {
+            _firewoodControllers.Remove(destroyedFirewood);
+        }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
