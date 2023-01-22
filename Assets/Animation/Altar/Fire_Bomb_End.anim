@@ -20,31 +20,44 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 564983740382853904, guid: 284e94ec97dfd604ba0cc871504d5876, type: 3}
+      value: {fileID: 564983740382853904, guid: 284e94ec97dfd604ba0cc871504d5876,
+        type: 3}
     - time: 0.083333336
-      value: {fileID: -6006455605923769680, guid: 284e94ec97dfd604ba0cc871504d5876, type: 3}
+      value: {fileID: -6006455605923769680, guid: 284e94ec97dfd604ba0cc871504d5876,
+        type: 3}
     - time: 0.16666667
-      value: {fileID: 2104417978433143140, guid: 284e94ec97dfd604ba0cc871504d5876, type: 3}
+      value: {fileID: 2104417978433143140, guid: 284e94ec97dfd604ba0cc871504d5876,
+        type: 3}
     - time: 0.25
-      value: {fileID: 2670408902306743655, guid: 284e94ec97dfd604ba0cc871504d5876, type: 3}
+      value: {fileID: 2670408902306743655, guid: 284e94ec97dfd604ba0cc871504d5876,
+        type: 3}
     - time: 0.33333334
-      value: {fileID: 787647822728609194, guid: 284e94ec97dfd604ba0cc871504d5876, type: 3}
+      value: {fileID: 787647822728609194, guid: 284e94ec97dfd604ba0cc871504d5876,
+        type: 3}
     - time: 0.41666666
-      value: {fileID: -5381214156125771086, guid: 284e94ec97dfd604ba0cc871504d5876, type: 3}
+      value: {fileID: -5381214156125771086, guid: 284e94ec97dfd604ba0cc871504d5876,
+        type: 3}
     - time: 0.5
-      value: {fileID: 6069304472392192484, guid: 284e94ec97dfd604ba0cc871504d5876, type: 3}
+      value: {fileID: 6069304472392192484, guid: 284e94ec97dfd604ba0cc871504d5876,
+        type: 3}
     - time: 0.5833333
-      value: {fileID: 8117952710303009403, guid: 284e94ec97dfd604ba0cc871504d5876, type: 3}
+      value: {fileID: 8117952710303009403, guid: 284e94ec97dfd604ba0cc871504d5876,
+        type: 3}
     - time: 0.6666667
-      value: {fileID: -946000942377729262, guid: 284e94ec97dfd604ba0cc871504d5876, type: 3}
+      value: {fileID: -946000942377729262, guid: 284e94ec97dfd604ba0cc871504d5876,
+        type: 3}
     - time: 0.75
-      value: {fileID: -2836785303666701264, guid: 284e94ec97dfd604ba0cc871504d5876, type: 3}
+      value: {fileID: -2836785303666701264, guid: 284e94ec97dfd604ba0cc871504d5876,
+        type: 3}
     - time: 0.8333333
-      value: {fileID: 7929396251719590759, guid: 284e94ec97dfd604ba0cc871504d5876, type: 3}
+      value: {fileID: 7929396251719590759, guid: 284e94ec97dfd604ba0cc871504d5876,
+        type: 3}
     - time: 0.9166667
-      value: {fileID: -7106078118149239761, guid: 284e94ec97dfd604ba0cc871504d5876, type: 3}
+      value: {fileID: -7106078118149239761, guid: 284e94ec97dfd604ba0cc871504d5876,
+        type: 3}
     - time: 1
-      value: {fileID: -4976417178726163005, guid: 284e94ec97dfd604ba0cc871504d5876, type: 3}
+      value: {fileID: -4976417178726163005, guid: 284e94ec97dfd604ba0cc871504d5876,
+        type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -101,4 +114,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.6666667
+    functionName: InvokeAttackAnimationHitMomentStartEvent
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

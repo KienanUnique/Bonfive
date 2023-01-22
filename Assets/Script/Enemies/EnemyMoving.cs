@@ -34,4 +34,11 @@ public class EnemyMoving : MonoBehaviour
     {
         _movingEnabled = true;
     }
+
+    public void ProcessDying()
+    {
+        DisableMoving();
+        _rigidbody2D.simulated = false;
+    }
+
 }

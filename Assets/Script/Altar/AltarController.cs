@@ -6,6 +6,7 @@ using Assets.Script.InteractableItems.Firewood;
 public class AltarController : MonoBehaviour
 {
     [SerializeField] private SafeZoneController _safeZoneController;
+    [SerializeField] private AttackZoneController _attackZoneController;
     [SerializeField] private RunesVisual _runesVisual;
     [SerializeField] private FireGlowEffectVisual _fireGlowEffectVisual;
     [SerializeField] private FireEffectVisual _fireEffectVisual;
@@ -46,6 +47,7 @@ public class AltarController : MonoBehaviour
         _safeZoneController.IncreaseSafeZone();
         _fireEffectVisual.IncreaseFireParticleSize();
         _fireGlowEffectVisual.IncreaseGlowEffectRadius();
+        _attackZoneController.AttackEnemies();
     }
 
     private IEnumerator PutFireOutWithDelay()

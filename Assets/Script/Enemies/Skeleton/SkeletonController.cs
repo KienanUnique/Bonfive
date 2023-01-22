@@ -21,7 +21,7 @@ public class SkeletonController : MonoBehaviour
     private Seeker _seeker;
     private Path _currentPath;
     private int _currentWaypointIndex;
-    private bool _canAttack = true;
+    private bool _isAttackNotCooldowning = true;
     private bool _wasInitialized = false;
 
     private void Awake()
@@ -40,10 +40,12 @@ public class SkeletonController : MonoBehaviour
 
     private void OnEnable()
     {
-        if(!_wasInitialized){
+        if (!_wasInitialized)
+        {
             _enemyController.Initialize += OnInitialize;
         }
         _enemyController.Initialize += OnInitialize;
+        _enemyController.AcceptedDieRequest += OnAcceptedDieRequest;
         _enemyVisual.AttackAnimationHitMomentStart += OnAttackAnimationHitMomentStart;
         _enemyController.AcceptedDisableMovingRequest += OnAcceptedDisableMovingRequest;
         _enemyController.AcceptedEnableMovingRequest += OnAcceptedEnableMovingRequest;
@@ -51,9 +53,11 @@ public class SkeletonController : MonoBehaviour
 
     private void OnDisable()
     {
-        if(!_wasInitialized){
+        if (!_wasInitialized)
+        {
             _enemyController.Initialize -= OnInitialize;
         }
+        _enemyController.AcceptedDieRequest -= OnAcceptedDieRequest;
         _enemyVisual.AttackAnimationHitMomentStart -= OnAttackAnimationHitMomentStart;
         _enemyController.AcceptedDisableMovingRequest -= OnAcceptedDisableMovingRequest;
         _enemyController.AcceptedEnableMovingRequest -= OnAcceptedEnableMovingRequest;
@@ -68,9 +72,9 @@ public class SkeletonController : MonoBehaviour
 
     private void Update()
     {
-        if (_canAttack && _enemyAttackTriggerZonePlayerDetector.IsPlayerInsideTriggerZone)
+        if (_isAttackNotCooldowning && _enemyAttackTriggerZonePlayerDetector.IsPlayerInsideTriggerZone && _enemyCharacter.IsAlive)
         {
-            _canAttack = false;
+            _isAttackNotCooldowning = false;
             _enemyVisual.StartAttackAnimation();
             StartCoroutine(AttackCooldownHandler());
         }
@@ -78,7 +82,7 @@ public class SkeletonController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_currentPath == null)
+        if (_currentPath == null || !_enemyCharacter.IsAlive)
         {
             return;
         }
@@ -101,7 +105,7 @@ public class SkeletonController : MonoBehaviour
 
     private void UpdatePathToPlayer()
     {
-        if (_seeker.IsDone())
+        if (_enemyCharacter.IsAlive && _seeker.IsDone())
         {
             _seeker.StartPath(transform.position, _targetTransform.position, OnPathComplete);
         }
@@ -128,7 +132,7 @@ public class SkeletonController : MonoBehaviour
     private IEnumerator AttackCooldownHandler()
     {
         yield return new WaitForSeconds(_attackCooldownSeconds);
-        _canAttack = true;
+        _isAttackNotCooldowning = true;
     }
 
     public void OnAttackAnimationHitMomentStart()
@@ -149,6 +153,14 @@ public class SkeletonController : MonoBehaviour
     {
         _enemyVisual.EnableMoving();
         _enemyMoving.EnableMoving();
+    }
+
+    private void OnAcceptedDieRequest()
+    {
+        _enemyMoving.ProcessDying();
+        _enemyVisual.StartDieAnimation();
+        _enemyCharacter.Die();
+        // TODO: add destroy gameobject corutine
     }
 
 }

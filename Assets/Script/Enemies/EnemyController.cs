@@ -7,8 +7,10 @@ public class EnemyController : MonoBehaviour
     public event OnInitialize Initialize;
     public event OnAcceptedRequest AcceptedDisableMovingRequest;
     public event OnAcceptedRequest AcceptedEnableMovingRequest;
+    public event OnAcceptedRequest AcceptedDieRequest;
 
-    public void InitializeEnemyParameters(Transform targetTransform){
+    public void InitializeEnemyParameters(Transform targetTransform)
+    {
         Initialize?.Invoke(targetTransform);
     }
     public void EnableMoving()
@@ -19,6 +21,11 @@ public class EnemyController : MonoBehaviour
     public void DisableMoving()
     {
         AcceptedDisableMovingRequest?.Invoke();
+    }
+
+    public void Die()
+    {
+        AcceptedDieRequest?.Invoke();
     }
 
     private void Start()

@@ -9,7 +9,6 @@ public class EnemyVisual : MonoBehaviour
 
     private Animator _animator;
     private static readonly int DieHash = Animator.StringToHash("Die");
-    private static readonly int MoveHash = Animator.StringToHash("Move");
     private static readonly int IsMovingHash = Animator.StringToHash("IsMoving");
     private static readonly int AttackHash = Animator.StringToHash("Attack");
     private bool _isFacingRight = false;
@@ -61,7 +60,6 @@ public class EnemyVisual : MonoBehaviour
     public void StartDieAnimation()
     {
         _isDead = true;
-        _animator.ResetTrigger(MoveHash);
         _animator.ResetTrigger(AttackHash);
         _animator.SetTrigger(DieHash);
     }
