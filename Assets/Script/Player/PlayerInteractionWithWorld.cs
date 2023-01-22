@@ -19,7 +19,6 @@ namespace Assets.Script.Player
             {
                 DropFirewood();
             }
-            Debug.Log($"IsNull: {_pickedUpFirewood == null}, in zone: {_interactebleObjectsDetector.HasFirewoodInReachebleZone}");
         }
 
         public void StopInterracrtingWithCurrentObjects()
@@ -33,38 +32,12 @@ namespace Assets.Script.Player
         private void PickUpFirewood()
         {
             _pickedUpFirewood = _interactebleObjectsDetector.FirewoodInReachebleZone;
-            _pickedUpFirewood.Destroyed += OnFirewoodDestroyedInFire;
             _pickedUpFirewood.ProcessPickUp(transform);
         }
 
         private void DropFirewood()
         {
-            _pickedUpFirewood.Destroyed -= OnFirewoodDestroyedInFire;
             _pickedUpFirewood.ProcessDrop();
-            _pickedUpFirewood = null;
-        }
-
-        private void OnEnable()
-        {
-            if (_pickedUpFirewood != null)
-            {
-                _pickedUpFirewood.Destroyed += OnFirewoodDestroyedInFire;
-            }
-        }
-
-        private void OnDisable()
-        {
-            if (_pickedUpFirewood != null)
-            {
-                _pickedUpFirewood.Destroyed -= OnFirewoodDestroyedInFire;
-            }
-        }
-
-        private void OnFirewoodDestroyedInFire()
-        {
-            Debug.Log("OnFirewoodDestroyedInFire");
-            _interactebleObjectsDetector.RemoveDestroyedFirewoodFromList(_pickedUpFirewood);
-            _pickedUpFirewood.Destroyed -= OnFirewoodDestroyedInFire;
             _pickedUpFirewood = null;
         }
     }

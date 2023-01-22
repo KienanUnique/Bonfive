@@ -12,9 +12,20 @@ namespace Assets.Script.Player
         public bool HasFirewoodInReachebleZone => _firewoodControllers.Count != 0;
         public FirewoodController FirewoodInReachebleZone => _firewoodControllers[_firewoodControllers.Count - 1];
 
-        public void RemoveDestroyedFirewoodFromList(FirewoodController destroyedFirewood)
+        private void OnEnable()
         {
-            _firewoodControllers.Remove(destroyedFirewood);
+            foreach (var firewood in _firewoodControllers)
+            {
+                firewood.Destroyed += OnFirewoodDestroy;
+            }
+        }
+
+        private void OnDisable()
+        {
+            foreach (var firewood in _firewoodControllers)
+            {
+                firewood.Destroyed -= OnFirewoodDestroy;
+            }
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -22,14 +33,23 @@ namespace Assets.Script.Player
             if (other.gameObject.TryGetComponent(out FirewoodController interactableItemController) && !_firewoodControllers.Contains(interactableItemController))
             {
                 _firewoodControllers.Add(interactableItemController);
+                interactableItemController.Destroyed += OnFirewoodDestroy;
             }
         }
         private void OnTriggerExit2D(Collider2D other)
         {
             if (other.gameObject.TryGetComponent(out FirewoodController interactableItemController) && _firewoodControllers.Contains(interactableItemController))
             {
+                interactableItemController.Destroyed -= OnFirewoodDestroy;
                 _firewoodControllers.Remove(interactableItemController);
             }
+        }
+
+        private void OnFirewoodDestroy(FirewoodController destroyedFirewood)
+        {
+            destroyedFirewood.Destroyed -= OnFirewoodDestroy;
+            _firewoodControllers.Remove(destroyedFirewood);
+            Debug.Log($"Destroyed, cuurent count: {_firewoodControllers.Count}");
         }
     }
 }
