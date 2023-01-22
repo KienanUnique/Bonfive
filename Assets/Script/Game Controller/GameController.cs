@@ -1,6 +1,7 @@
 using Assets.Script.Player;
 using UnityEngine;
 
+[RequireComponent(typeof(CountDownTimer))]
 public class GameController : MonoBehaviour
 {
     [SerializeField] private PlayerController _player;
@@ -13,6 +14,7 @@ public class GameController : MonoBehaviour
     public static EnemySpawnersRegistrator GlobalEnemySpawnersRegistrator { get; private set; }
     public static FirewoodSpawnersRegistrator GlobalFirewoodSpawnersRegistrator { get; private set; }
     private static EnemiesSoulsCounter _enemiesSoulsCounter;
+    private static CountDownTimer _endGameTimer;
     public static GameController Instance = null;
 
     private void Awake()
@@ -38,6 +40,7 @@ public class GameController : MonoBehaviour
         GlobalEnemySpawnersRegistrator = new EnemySpawnersRegistrator();
         GlobalFirewoodSpawnersRegistrator = new FirewoodSpawnersRegistrator();
         _enemiesSoulsCounter = new EnemiesSoulsCounter(_soulsCountForWinning);
+        _endGameTimer = GetComponent<CountDownTimer>();
     }
 
     private void OnEnable()
@@ -47,6 +50,7 @@ public class GameController : MonoBehaviour
         GlobalFirewoodsRegistrator.ObjectAdd += OnFirewoodCountChange;
         GlobalFirewoodsRegistrator.ObjectRemove += OnFirewoodCountChange;
         _enemiesSoulsCounter.NeedSoulsCountReach += OnNeedSoulsCountReach;
+        _endGameTimer.Finish += OnEndGameTimerFinish;
     }
 
     private void OnDisable()
@@ -56,21 +60,30 @@ public class GameController : MonoBehaviour
         GlobalFirewoodsRegistrator.ObjectAdd -= OnFirewoodCountChange;
         GlobalFirewoodsRegistrator.ObjectRemove -= OnFirewoodCountChange;
         _enemiesSoulsCounter.NeedSoulsCountReach -= OnNeedSoulsCountReach;
+        _endGameTimer.Finish -= OnEndGameTimerFinish;
     }
 
-    private void OnNeedSoulsCountReach(){
+    private void OnEndGameTimerFinish()
+    {
+        Debug.Log("OnEndGameTimerFinish");
+    }
+    private void OnNeedSoulsCountReach()
+    {
         Debug.Log("NeedSoulsCountReach");
     }
 
-    private void OnFirewoodCountChange(){
+    private void OnFirewoodCountChange()
+    {
         ControlFirewoodsCount();
     }
 
-    private void OnEnemieAdd(){
+    private void OnEnemieAdd()
+    {
         ControlEnemiesCount();
     }
 
-    private void OnEnemieRemove(){
+    private void OnEnemieRemove()
+    {
         _enemiesSoulsCounter.AddSoul();
         ControlEnemiesCount();
     }
