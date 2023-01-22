@@ -19,15 +19,6 @@ namespace Assets.Script.InteractableItems.Firewood
             _firewoodVisual = GetComponent<FirewoodVisual>();
             _rigidbody2D = GetComponent<Rigidbody2D>();
         }
-        public void ProcessEnterToPlayerReachebleZone()
-        {
-
-        }
-
-        public void ProcessExitFromPlayerReachebleZone()
-        {
-
-        }
 
         public void ProcessPickUp(Transform targetToFollow)
         {

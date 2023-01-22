@@ -21,7 +21,7 @@ public class AltarController : MonoBehaviour
     }
     private void Start()
     {
-        _safeZoneController.SetupSteps(_countOfSteps, _startStep);
+        _safeZoneController.SetupSteps(_countOfSteps, _startStep - 1);
         _fireEffectVisual.SetupSteps(_countOfSteps, _startStep);
         _fireGlowEffectVisual.SetupSteps(_countOfSteps, _startStep);
         _putFireOutWithDelay = PutFireOutWithDelay();

@@ -15,6 +15,7 @@ namespace Assets.Script.Player
         private static readonly int TakeHitHash = Animator.StringToHash("Take Hit");
         private bool _isFacingRight;
         private bool _isMoving;
+        private bool _isDead = false;
 
         private void Start()
         {
@@ -32,7 +33,7 @@ namespace Assets.Script.Player
 
         public void StartMovingAnimation(Vector2 direction)
         {
-            if (!_isMoving)
+            if (!_isMoving && !_isDead)
             {
                 _isMoving = true;
                 _animator.SetBool(IsMovingHash, true);
@@ -45,7 +46,7 @@ namespace Assets.Script.Player
 
         public void StartIdleAnimation()
         {
-            if (_isMoving)
+            if (_isMoving && !_isDead)
             {
                 _isMoving = false;
                 _animator.SetBool(IsMovingHash, false);
@@ -54,28 +55,44 @@ namespace Assets.Script.Player
 
         public void StartDieAnimation()
         {
+            if(_isDead){
+                return;
+            }
+            _isDead = true;
             _animator.ResetTrigger(RespawnHash);
             _animator.ResetTrigger(UseActionHash);
+            _animator.ResetTrigger(TakeHitHash);
+            _animator.SetBool(IsMovingHash, false);
             _animator.SetTrigger(DieHash);
         }
 
         public void StartRespawnAnimation()
         {
+            _isDead = false;
             _animator.SetTrigger(RespawnHash);
         }
 
         public void StartUseActionAnimation()
         {
+            if(_isDead){
+                return;
+            }
             _animator.SetTrigger(UseActionHash);
         }
 
         public void StartTakeHitAnimation()
         {
+            if(_isDead){
+                return;
+            }
             _animator.SetTrigger(TakeHitHash);
         }
 
         public void PlayUseAnimation(InputAction.CallbackContext callbackContext)
         {
+            if(_isDead){
+                return;
+            }
             _animator.SetTrigger(UseActionHash);
         }
     }

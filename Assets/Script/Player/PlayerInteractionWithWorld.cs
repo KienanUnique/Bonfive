@@ -13,31 +13,55 @@ namespace Assets.Script.Player
         {
             if (_pickedUpFirewood == null && _interactebleObjectsDetector.HasFirewoodInReachebleZone)
             {
-                _pickedUpFirewood = _interactebleObjectsDetector.FirewoodInReachebleZone;
-                _pickedUpFirewood.DestroyedInFire += OnFirewoodDestroyedInFire;
-                _pickedUpFirewood.ProcessPickUp(transform);
+                PickUpFirewood();
             }
             else if (_pickedUpFirewood != null)
             {
-                _pickedUpFirewood.DestroyedInFire -= OnFirewoodDestroyedInFire;
-                _pickedUpFirewood.ProcessDrop();
-                _pickedUpFirewood = null;
+                DropFirewood();
             }
         }
 
-        private void OnEnable() {
-            if (_pickedUpFirewood != null){
+        public void StopInterracrtingWithCurrentObjects()
+        {
+            if (_pickedUpFirewood != null)
+            {
+                DropFirewood();
+            }
+        }
+
+        private void PickUpFirewood()
+        {
+            _pickedUpFirewood = _interactebleObjectsDetector.FirewoodInReachebleZone;
+            _pickedUpFirewood.DestroyedInFire += OnFirewoodDestroyedInFire;
+            _pickedUpFirewood.ProcessPickUp(transform);
+        }
+
+        private void DropFirewood()
+        {
+
+            _pickedUpFirewood.DestroyedInFire -= OnFirewoodDestroyedInFire;
+            _pickedUpFirewood.ProcessDrop();
+            _pickedUpFirewood = null;
+        }
+
+        private void OnEnable()
+        {
+            if (_pickedUpFirewood != null)
+            {
                 _pickedUpFirewood.DestroyedInFire += OnFirewoodDestroyedInFire;
             }
         }
 
-        private void OnDisable() {
-            if (_pickedUpFirewood != null){
+        private void OnDisable()
+        {
+            if (_pickedUpFirewood != null)
+            {
                 _pickedUpFirewood.DestroyedInFire -= OnFirewoodDestroyedInFire;
             }
         }
 
-        private void OnFirewoodDestroyedInFire(){
+        private void OnFirewoodDestroyedInFire()
+        {
             _pickedUpFirewood.DestroyedInFire -= OnFirewoodDestroyedInFire;
             _pickedUpFirewood = null;
         }

@@ -27,7 +27,7 @@ public class SafeZoneMechanics : MonoBehaviour
     {
         while (true)
         {
-            _playerController.Heal(_countOfHealingHP);
+            _playerController.AcceptHealing(_countOfHealingHP);
             yield return new WaitForSeconds(_healCooldownSeconds);
         }
 

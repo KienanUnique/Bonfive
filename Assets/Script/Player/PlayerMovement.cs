@@ -11,16 +11,12 @@ namespace Assets.Script.Player
 
         [Header("Die")]
         [SerializeField] private Transform _respawnPoint;
-
-        private BoxCollider2D _boxCollider2D;
         private bool _movingEnabled;
-        private bool _isMoving;
         private Rigidbody2D _rigidbody2D;
 
         private void Awake()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
-            _boxCollider2D = GetComponent<BoxCollider2D>();
             _movingEnabled = true;
         }
 
@@ -34,7 +30,6 @@ namespace Assets.Script.Player
 
         public void StopMoving()
         {
-            ;
             _rigidbody2D.velocity = Vector2.zero;
         }
 
@@ -42,6 +37,7 @@ namespace Assets.Script.Player
         public void DisableMoving()
         {
             _movingEnabled = false;
+            StopMoving();
         }
 
         public void EnableMoving()

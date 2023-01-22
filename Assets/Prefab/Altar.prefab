@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 98664906}
   - component: {fileID: 98664905}
   - component: {fileID: 8283837708756675544}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4851,7 +4851,7 @@ GameObject:
   - component: {fileID: 952507851}
   - component: {fileID: 952507853}
   - component: {fileID: 952507852}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9741,7 +9741,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1001742113}
-  m_Layer: 20
+  m_Layer: 6
   m_Name: Fire effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9777,8 +9777,10 @@ GameObject:
   - component: {fileID: 1144756971}
   - component: {fileID: 3746475244128702581}
   - component: {fileID: 3750070610901441363}
-  - component: {fileID: 3718117042986332727}
-  m_Layer: 20
+  - component: {fileID: 6627399398289149296}
+  - component: {fileID: 8982666250091684924}
+  - component: {fileID: 327268423}
+  m_Layer: 6
   m_Name: Safe Zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9811,7 +9813,7 @@ CircleCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0.01701277, y: 1.140311}
   serializedVersion: 2
@@ -9842,7 +9844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _countOfHealingHP: 3
   _healCooldownSeconds: 3
---- !u!114 &3718117042986332727
+--- !u!114 &6627399398289149296
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9851,11 +9853,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 1144756969}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae7337b3383518a41878be3f87c19236, type: 3}
+  m_Script: {fileID: 11500000, guid: 07513ee97f338be4687486a2de52b392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minimumDetectionRadius: 2
-  _maximumDetectionRadius: 5
+  _minimumDetectionRadius: 3
+  _maximumDetectionRadius: 7
+--- !u!114 &8982666250091684924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144756969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a633f232e59cc15418dc02b2a6e1b0a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _minimumForceMagnitude: 130
+  _maximumForceMagnitude: 200
+--- !u!250 &327268423
+PointEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144756969}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 128
+  m_ForceMagnitude: 135
+  m_ForceVariation: 0
+  m_DistanceScale: 1
+  m_ForceSource: 0
+  m_ForceTarget: 0
+  m_ForceMode: 0
+  m_Drag: 0
+  m_AngularDrag: 0
 --- !u!1 &1925043063
 GameObject:
   m_ObjectHideFlags: 0
@@ -9868,7 +9904,7 @@ GameObject:
   - component: {fileID: 1925043066}
   - component: {fileID: 1925043065}
   - component: {fileID: 2009463859608607901}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14697,7 +14733,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3729919413811085551}
   - component: {fileID: 3798840749968781506}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14779,7 +14815,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2703826692737339031}
   - component: {fileID: 2703826692737339028}
-  m_Layer: 20
+  m_Layer: 6
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14864,7 +14900,7 @@ GameObject:
   - component: {fileID: 1797823976107177897}
   - component: {fileID: 1502882457}
   - component: {fileID: 7478146372000613668}
-  m_Layer: 20
+  m_Layer: 6
   m_Name: Altar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15007,7 +15043,7 @@ GameObject:
   m_Component:
   - component: {fileID: 958497157886781234}
   - component: {fileID: 1484563792961886374}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15089,7 +15125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 208803706557538535}
   - component: {fileID: 1518531637}
-  m_Layer: 20
+  m_Layer: 6
   m_Name: Runes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15144,7 +15180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8658229445303099306}
   - component: {fileID: 6215213525416896965}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15226,7 +15262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 526030875573637746}
   - component: {fileID: 2122932322479880688}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15364,6 +15400,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Statue
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: d730038d263986f4dac93230e1dd62b0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947911505844789836, guid: d730038d263986f4dac93230e1dd62b0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d730038d263986f4dac93230e1dd62b0, type: 3}

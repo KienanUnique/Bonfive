@@ -16,7 +16,6 @@ namespace Assets.Script.Player
         {
             if (other.gameObject.TryGetComponent(out FirewoodController interactableItemController) && !_firewoodControllers.Contains(interactableItemController))
             {
-                interactableItemController.ProcessEnterToPlayerReachebleZone();
                 _firewoodControllers.Add(interactableItemController);
             }
         }
@@ -24,7 +23,6 @@ namespace Assets.Script.Player
         {
             if (other.gameObject.TryGetComponent(out FirewoodController interactableItemController) && _firewoodControllers.Contains(interactableItemController))
             {
-                interactableItemController.ProcessExitFromPlayerReachebleZone();
                 _firewoodControllers.Remove(interactableItemController);
             }
         }

@@ -1,27 +1,31 @@
-using Assets.Script.Player;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Assets.Script.Player
 {
     [RequireComponent(typeof(PlayerMovement))]
     [RequireComponent(typeof(PlayerVisual))]
+    [RequireComponent(typeof(PlayerCharacter))]
     [RequireComponent(typeof(PlayerInteractionWithWorld))]
     public class PlayerController : MonoBehaviour
     {
+        public Vector2 CurrentPosition => transform.position;
         private const float MinimalInputMagnitude = 0.5f;
         private Maincontrols _mainControls;
         private PlayerMovement _playerMovement;
         private PlayerVisual _playerVisual;
+        private PlayerCharacter _playerCharacter;
         private PlayerInteractionWithWorld _playerInteractionWithWorld;
+        private bool NeedProcesCharacterControl = true;
 
-        public void Heal(int countOfHP){
-            Debug.Log($"Heal on: {countOfHP} HP");
+        public void AcceptHealing(int countOfHP)
+        {
+            _playerCharacter.AcceptHealing(countOfHP);
         }
 
-        public void TakeHit(int countOfHP){
+        public void TakeHit(int countOfHP)
+        {
             _playerVisual.StartTakeHitAnimation();
-            Debug.Log(-1 * countOfHP);
+            _playerCharacter.TakeHit(countOfHP);
         }
 
         private void Awake()
@@ -30,6 +34,7 @@ namespace Assets.Script.Player
             _playerMovement = GetComponent<PlayerMovement>();
             _playerVisual = GetComponent<PlayerVisual>();
             _playerInteractionWithWorld = GetComponent<PlayerInteractionWithWorld>();
+            _playerCharacter = GetComponent<PlayerCharacter>();
         }
 
         private void Start()
@@ -41,34 +46,50 @@ namespace Assets.Script.Player
 
         private void Update()
         {
-            var readDirection = _mainControls.CharacterControl.Move.ReadValue<Vector2>().normalized;
-            if (readDirection.magnitude > MinimalInputMagnitude)
+            if (NeedProcesCharacterControl)
             {
-                _playerMovement.Move(readDirection);
-                _playerVisual.StartMovingAnimation(readDirection);
-            }
-            else
-            {
-                _playerMovement.StopMoving();
-                _playerVisual.StartIdleAnimation();
+                var readDirection = _mainControls.CharacterControl.Move.ReadValue<Vector2>().normalized;
+                if (readDirection.magnitude > MinimalInputMagnitude)
+                {
+                    _playerMovement.Move(readDirection);
+                    _playerVisual.StartMovingAnimation(readDirection);
+                }
+                else
+                {
+                    _playerMovement.StopMoving();
+                    _playerVisual.StartIdleAnimation();
+                }
             }
         }
 
         private void OnUseActionPerformed()
         {
-            _playerVisual.StartUseActionAnimation();
-            _playerInteractionWithWorld.TryInterractWithObjectsInReachableZone();
+            if (NeedProcesCharacterControl)
+            {
+                _playerVisual.StartUseActionAnimation();
+                _playerInteractionWithWorld.TryInterractWithObjectsInReachableZone();
+            }
         }
         private void OnEnable()
         {
             _mainControls.Enable();
             _mainControls.CharacterControl.UseAction.performed += ctx => OnUseActionPerformed();
+            _playerCharacter.Die += OnDie;
         }
 
         private void OnDisable()
         {
             _mainControls.Disable();
             _mainControls.CharacterControl.UseAction.performed -= ctx => OnUseActionPerformed();
+            _playerCharacter.Die -= OnDie;
+        }
+
+        private void OnDie()
+        {
+            NeedProcesCharacterControl = false;
+            _playerMovement.DisableMoving();
+            _playerVisual.StartDieAnimation();
+            _playerInteractionWithWorld.StopInterracrtingWithCurrentObjects();
         }
     }
 }
