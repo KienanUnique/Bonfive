@@ -17,7 +17,8 @@ namespace Assets.Script.InteractableItems.Firewood
 
         public void ProcessPickUp(Transform targetToFollow)
         {
-            if(_isDestroyed){
+            if (_isDestroyed)
+            {
                 return;
             }
             _firewoodMovement.StartFollowPosition(targetToFollow);
@@ -27,7 +28,8 @@ namespace Assets.Script.InteractableItems.Firewood
 
         public void ProcessDrop()
         {
-            if(_isDestroyed){
+            if (_isDestroyed)
+            {
                 return;
             }
             _firewoodMovement.StopFollowingPosition();
@@ -36,7 +38,8 @@ namespace Assets.Script.InteractableItems.Firewood
             _rigidbody2D.velocity = Vector2.zero;
         }
 
-        public void DestroyInFire(){
+        public void DestroyInFire()
+        {
             _isDestroyed = true;
             DestroyedInFire?.Invoke();
             Destroy(gameObject);
@@ -49,11 +52,13 @@ namespace Assets.Script.InteractableItems.Firewood
             _rigidbody2D = GetComponent<Rigidbody2D>();
         }
 
-        private void Start() {
+        private void Start()
+        {
             GameController.GlobalFirewoodsRegistrator.Add(this);
         }
 
-        private void OnDestroy() {
+        private void OnDestroy()
+        {
             GameController.GlobalFirewoodsRegistrator.Remove(this);
         }
 

@@ -11,7 +11,7 @@ public class SpawnersRegistrator<T> : ObjectRegistrator<T> where T : ISpawner
     public void EnableAllSpawners(){
         IsEnabled = true;
         foreach(var spawner in _objectsList){
-            spawner.StopSpawning();
+            spawner.StartSpawning();
         }
     }
 

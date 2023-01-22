@@ -14,6 +14,7 @@ public class SkeletonController : MonoBehaviour
     [SerializeField] private float _nextWaypointDistance;
     [SerializeField] private float _pathUpdateIntervalSeconds;
     [SerializeField] private float _attackCooldownSeconds;
+    [SerializeField] private float _secondsBeforeDestroy;
     private Transform _targetTransform;
     private EnemyController _enemyController;
     private EnemyMoving _enemyMoving;
@@ -160,7 +161,12 @@ public class SkeletonController : MonoBehaviour
         _enemyMoving.ProcessDying();
         _enemyVisual.StartDieAnimation();
         _enemyCharacter.Die();
-        // TODO: add destroy gameobject corutine
+        Invoke(nameof(Destroy), _secondsBeforeDestroy);
+    }
+
+    private void Destroy()
+    {
+        Destroy(this.gameObject);
     }
 
 }
