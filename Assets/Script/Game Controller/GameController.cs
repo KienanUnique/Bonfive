@@ -51,6 +51,7 @@ public class GameController : MonoBehaviour
         GlobalFirewoodsRegistrator.ObjectRemove += OnFirewoodCountChange;
         _enemiesSoulsCounter.NeedSoulsCountReach += OnNeedSoulsCountReach;
         _endGameTimer.Finish += OnEndGameTimerFinish;
+        _player.Die += OnPlayerDie;
     }
 
     private void OnDisable()
@@ -61,15 +62,20 @@ public class GameController : MonoBehaviour
         GlobalFirewoodsRegistrator.ObjectRemove -= OnFirewoodCountChange;
         _enemiesSoulsCounter.NeedSoulsCountReach -= OnNeedSoulsCountReach;
         _endGameTimer.Finish -= OnEndGameTimerFinish;
+        _player.Die -= OnPlayerDie;
     }
 
     private void OnEndGameTimerFinish()
     {
-        Debug.Log("OnEndGameTimerFinish");
+        Debug.Log("EndGameTimerFinish");
     }
     private void OnNeedSoulsCountReach()
     {
         Debug.Log("NeedSoulsCountReach");
+    }
+    private void OnPlayerDie()
+    {
+        Debug.Log("PlayerDie");
     }
 
     private void OnFirewoodCountChange()

@@ -8,6 +8,8 @@ namespace Assets.Script.Player
     [RequireComponent(typeof(PlayerInteractionWithWorld))]
     public class PlayerController : MonoBehaviour
     {
+        public delegate void OnCharacterDie();
+        public event OnCharacterDie Die;
         public Vector2 CurrentPosition => transform.position;
         private const float MinimalInputMagnitude = 0.5f;
         private Maincontrols _mainControls;
@@ -90,6 +92,7 @@ namespace Assets.Script.Player
             _playerMovement.DisableMoving();
             _playerVisual.StartDieAnimation();
             _playerInteractionWithWorld.StopInterracrtingWithCurrentObjects();
+            Die?.Invoke();
         }
     }
 }
