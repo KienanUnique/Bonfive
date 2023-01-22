@@ -25,6 +25,7 @@ public class AltarController : MonoBehaviour
         _safeZoneController.SetupSteps(_countOfSteps, _startStep - 1);
         _fireEffectVisual.SetupSteps(_countOfSteps, _startStep);
         _fireGlowEffectVisual.SetupSteps(_countOfSteps, _startStep);
+        _attackZoneController.SetupSteps(_countOfSteps, _startStep);
         _putFireOutWithDelay = PutFireOutWithDelay();
         StartCoroutine(_putFireOutWithDelay);
     }
@@ -47,6 +48,7 @@ public class AltarController : MonoBehaviour
         _safeZoneController.IncreaseSafeZone();
         _fireEffectVisual.IncreaseFireParticleSize();
         _fireGlowEffectVisual.IncreaseGlowEffectRadius();
+        _attackZoneController.IncreaseAttackZone();
         _attackZoneController.AttackEnemies();
     }
 
@@ -58,6 +60,7 @@ public class AltarController : MonoBehaviour
             _safeZoneController.DecreaseSafeZone();
             _fireEffectVisual.DecreaseFireParticleSize();
             _fireGlowEffectVisual.DecreaseGlowEffectRadius();
+            _attackZoneController.DecreaseAttackZone();
         }
 
     }

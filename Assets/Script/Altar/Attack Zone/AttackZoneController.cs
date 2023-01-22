@@ -9,6 +9,22 @@ public class AttackZoneController : MonoBehaviour
     private AttackZoneVisual _attackZoneVisual;
     private AttackZoneMechanics _attackZoneMechanics;
 
+    public void SetupSteps(int stepsCount, int startStep)
+    {
+        _attackZoneEnemiesDetector.SetupSteps(stepsCount, startStep);
+    }
+
+    public void IncreaseAttackZone()
+    {
+        _attackZoneEnemiesDetector.IncreaseDetectionRadius();
+    }
+
+    public void DecreaseAttackZone()
+    {
+        _attackZoneEnemiesDetector.DecreaseDetectionRadius();
+
+    }
+
     public void AttackEnemies()
     {
         _attackZoneVisual.StartAttackAnimation();
