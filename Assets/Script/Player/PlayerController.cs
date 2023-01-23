@@ -5,6 +5,7 @@ namespace Assets.Script.Player
     [RequireComponent(typeof(PlayerMovement))]
     [RequireComponent(typeof(PlayerVisual))]
     [RequireComponent(typeof(PlayerCharacter))]
+    [RequireComponent(typeof(PlayerAudio))]
     [RequireComponent(typeof(PlayerInteractionWithWorld))]
     public class PlayerController : MonoBehaviour
     {
@@ -19,6 +20,7 @@ namespace Assets.Script.Player
         private PlayerVisual _playerVisual;
         private PlayerCharacter _playerCharacter;
         private PlayerInteractionWithWorld _playerInteractionWithWorld;
+        private PlayerAudio _playerAudio;
         private bool NeedProcesCharacterControl = true;
 
         public void AcceptHealing(int countOfHP)
@@ -28,6 +30,7 @@ namespace Assets.Script.Player
 
         public void TakeHit(int countOfHP)
         {
+            _playerAudio.PlayHitSound();
             _playerVisual.StartTakeHitAnimation();
             _playerCharacter.TakeHit(countOfHP);
         }
@@ -39,6 +42,7 @@ namespace Assets.Script.Player
             _playerVisual = GetComponent<PlayerVisual>();
             _playerInteractionWithWorld = GetComponent<PlayerInteractionWithWorld>();
             _playerCharacter = GetComponent<PlayerCharacter>();
+            _playerAudio = GetComponent<PlayerAudio>();
         }
 
         private void Start()
@@ -72,6 +76,7 @@ namespace Assets.Script.Player
             {
                 _playerVisual.StartUseActionAnimation();
                 _playerInteractionWithWorld.TryInterractWithObjectsInReachableZone();
+                _playerAudio.PlayInteractWitnItemSound();
             }
         }
         private void OnEnable()
@@ -95,6 +100,7 @@ namespace Assets.Script.Player
             NeedProcesCharacterControl = false;
             _playerMovement.DisableMoving();
             _playerVisual.StartDieAnimation();
+            _playerAudio.PlayDieSound();
             _playerInteractionWithWorld.StopInterracrtingWithCurrentObjects();
             Die?.Invoke();
         }

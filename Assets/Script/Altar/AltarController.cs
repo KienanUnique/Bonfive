@@ -3,6 +3,7 @@ using System.Collections;
 using Assets.Script.InteractableItems.Firewood;
 
 [RequireComponent(typeof(AltarFirewoodDetector))]
+[RequireComponent(typeof(AltarAudio))]
 public class AltarController : MonoBehaviour
 {
     [SerializeField] private SafeZoneController _safeZoneController;
@@ -14,11 +15,13 @@ public class AltarController : MonoBehaviour
     [SerializeField] private int _startStep;
     [SerializeField] private float _fadingFireStepSeconds;
     private AltarFirewoodDetector _altarFirewoodDetector;
+    private AltarAudio _altarAudio;
     private IEnumerator _putFireOutWithDelay;
 
     private void Awake()
     {
         _altarFirewoodDetector = GetComponent<AltarFirewoodDetector>();
+        _altarAudio = GetComponent<AltarAudio>();
     }
     private void Start()
     {
@@ -40,6 +43,7 @@ public class AltarController : MonoBehaviour
 
     private void OnFirewoodEnteredAltar(FirewoodController _enteredFirewoodController)
     {
+        _altarAudio.PlayFirewoodBurnSound();
         StopCoroutine(_putFireOutWithDelay);
         _putFireOutWithDelay = PutFireOutWithDelay();
         StartCoroutine(_putFireOutWithDelay);

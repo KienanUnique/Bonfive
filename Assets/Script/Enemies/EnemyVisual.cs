@@ -4,8 +4,9 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class EnemyVisual : MonoBehaviour
 {
-    public delegate void OnAttackAnimationHitMomentStart();
-    public event OnAttackAnimationHitMomentStart AttackAnimationHitMomentStart;
+    public delegate void OnAnimationMoment();
+    public event OnAnimationMoment AttackAnimationHitMomentStart;
+    public event OnAnimationMoment MoveAnimationStepMoment;
 
     private Animator _animator;
     private static readonly int DieHash = Animator.StringToHash("Die");
@@ -33,6 +34,11 @@ public class EnemyVisual : MonoBehaviour
     public void CallEventAttackAnimationHitMomentStart()
     {
         AttackAnimationHitMomentStart?.Invoke();
+    }
+
+    public void CallEventMoveAnimationStepMoment()
+    {
+        MoveAnimationStepMoment?.Invoke();
     }
 
     public void StartMovingAnimation(Vector2 direction)

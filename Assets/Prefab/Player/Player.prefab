@@ -88,6 +88,8 @@ GameObject:
   - component: {fileID: 7424398363285807955}
   - component: {fileID: 5081182042419379015}
   - component: {fileID: 5485852737416749457}
+  - component: {fileID: 8896616238456162879}
+  - component: {fileID: 1507978113022538079}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -293,3 +295,134 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maximumHP: 10
+--- !u!82 &8896616238456162879
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7424398363285807979}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1507978113022538079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7424398363285807979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3a907592b6d2be4b9bff6dc80db8abe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stepSounds:
+  - {fileID: 8300000, guid: c5da48e319a9cec40aa926569e8a7187, type: 3}
+  - {fileID: 8300000, guid: a453e180362dcfa44a308002499b40a4, type: 3}
+  - {fileID: 8300000, guid: 018a19b4b2d7f8d47ae3d1e728c476a0, type: 3}
+  - {fileID: 8300000, guid: f533a02dc582b8e49a862d77941a50b7, type: 3}
+  - {fileID: 8300000, guid: b1057c1992f071146a7cc373a32ebf7a, type: 3}
+  - {fileID: 8300000, guid: 15145e401e810ae4ab46228498e41815, type: 3}
+  _stepsSoundLevel: 0.5
+  _dieSounds:
+  - {fileID: 8300000, guid: bbdc95d471d4d3c4292d28816d243614, type: 3}
+  - {fileID: 8300000, guid: be3a00421e03db241834a5d762d273c7, type: 3}
+  _dieSoundsSoundLevel: 0.8
+  _hitSounds:
+  - {fileID: 8300000, guid: bbdc95d471d4d3c4292d28816d243614, type: 3}
+  - {fileID: 8300000, guid: be3a00421e03db241834a5d762d273c7, type: 3}
+  _hitSoundsSoundLevel: 0.8
+  _interactWitnItemSounds:
+  - {fileID: 8300000, guid: f9a8ead5d1971c74f97a4a8d22da684c, type: 3}
+  - {fileID: 8300000, guid: ad1a534ccdb6efc4d8db619aa5e71737, type: 3}
+  - {fileID: 8300000, guid: 3519126e25ad2ce448d861e3d10a0a6b, type: 3}
+  - {fileID: 8300000, guid: 31712fa697f30f64ab756a834b4cae08, type: 3}
+  - {fileID: 8300000, guid: d8244acbee1910e4db5c2b54e3739788, type: 3}
+  _interactWitnItemSoundsSoundLevel: 0.8

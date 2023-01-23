@@ -5,6 +5,7 @@ using System.Collections;
 [RequireComponent(typeof(EnemyController))]
 [RequireComponent(typeof(EnemyMoving))]
 [RequireComponent(typeof(EnemyCharacter))]
+[RequireComponent(typeof(EnemyAudio))]
 [RequireComponent(typeof(Seeker))]
 public class SkeletonController : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class SkeletonController : MonoBehaviour
     private EnemyController _enemyController;
     private EnemyMoving _enemyMoving;
     private EnemyCharacter _enemyCharacter;
+    private EnemyAudio _enemyAudio;
     private Seeker _seeker;
     private Path _currentPath;
     private int _currentWaypointIndex;
@@ -30,6 +32,7 @@ public class SkeletonController : MonoBehaviour
         _enemyController = GetComponent<EnemyController>();
         _enemyMoving = GetComponent<EnemyMoving>();
         _enemyCharacter = GetComponent<EnemyCharacter>();
+        _enemyAudio = GetComponent<EnemyAudio>();
         _seeker = GetComponent<Seeker>();
     }
 
@@ -48,6 +51,7 @@ public class SkeletonController : MonoBehaviour
         _enemyController.Initialize += OnInitialize;
         _enemyController.AcceptedDieRequest += OnAcceptedDieRequest;
         _enemyVisual.AttackAnimationHitMomentStart += OnAttackAnimationHitMomentStart;
+        _enemyVisual.MoveAnimationStepMoment += OnMoveAnimationStepMoment;
         _enemyController.AcceptedDisableMovingRequest += OnAcceptedDisableMovingRequest;
         _enemyController.AcceptedEnableMovingRequest += OnAcceptedEnableMovingRequest;
     }
@@ -60,6 +64,7 @@ public class SkeletonController : MonoBehaviour
         }
         _enemyController.AcceptedDieRequest -= OnAcceptedDieRequest;
         _enemyVisual.AttackAnimationHitMomentStart -= OnAttackAnimationHitMomentStart;
+        _enemyVisual.MoveAnimationStepMoment -= OnMoveAnimationStepMoment;
         _enemyController.AcceptedDisableMovingRequest -= OnAcceptedDisableMovingRequest;
         _enemyController.AcceptedEnableMovingRequest -= OnAcceptedEnableMovingRequest;
     }
@@ -136,12 +141,18 @@ public class SkeletonController : MonoBehaviour
         _isAttackNotCooldowning = true;
     }
 
-    public void OnAttackAnimationHitMomentStart()
+    private void OnAttackAnimationHitMomentStart()
     {
+        _enemyAudio.PlayAttackSound();
         if (_enemyAttackDamageZonePlayerDetector.IsPlayerInside)
         {
             _enemyCharacter.DamagePlayer(_enemyAttackDamageZonePlayerDetector.Player);
         }
+    }
+
+    private void OnMoveAnimationStepMoment()
+    {
+        _enemyAudio.PlayStepSound();
     }
 
     private void OnAcceptedDisableMovingRequest()
@@ -159,6 +170,7 @@ public class SkeletonController : MonoBehaviour
     private void OnAcceptedDieRequest()
     {
         _enemyMoving.ProcessDying();
+        _enemyAudio.PlayDieSound();
         _enemyVisual.StartDieAnimation();
         _enemyCharacter.Die();
         Invoke(nameof(Destroy), _secondsBeforeDestroy);

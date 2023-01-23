@@ -253,6 +253,8 @@ GameObject:
   - component: {fileID: 6865296507247663336}
   - component: {fileID: 223736585}
   - component: {fileID: 7023139839760985867}
+  - component: {fileID: 4107608872736392287}
+  - component: {fileID: 8753580832043524773}
   m_Layer: 7
   m_Name: Skeletone
   m_TagString: Untagged
@@ -409,3 +411,146 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50d4658c870cbfe46a88450daed26762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &4107608872736392287
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7878097244634604833}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 15
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.2
+      value: 1
+      inSlope: -5.0019917
+      outSlope: -5.0019917
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.42548218
+      value: 0.40312195
+      inSlope: -1.2504979
+      outSlope: -1.2504979
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.7872742
+      value: 0.1968689
+      inSlope: -0.31262448
+      outSlope: -0.31262448
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0.2
+      inSlope: -0.20007975
+      outSlope: -0.20007975
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &8753580832043524773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7878097244634604833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb48de5c246f47a4c84fd1bb95b1eaa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stepSounds:
+  - {fileID: 8300000, guid: c5da48e319a9cec40aa926569e8a7187, type: 3}
+  - {fileID: 8300000, guid: a453e180362dcfa44a308002499b40a4, type: 3}
+  - {fileID: 8300000, guid: 018a19b4b2d7f8d47ae3d1e728c476a0, type: 3}
+  - {fileID: 8300000, guid: f533a02dc582b8e49a862d77941a50b7, type: 3}
+  - {fileID: 8300000, guid: b1057c1992f071146a7cc373a32ebf7a, type: 3}
+  - {fileID: 8300000, guid: 15145e401e810ae4ab46228498e41815, type: 3}
+  _stepsSoundLevel: 0.5
+  _dieSounds:
+  - {fileID: 8300000, guid: 0a76f63836bcca74b87c750e8cfe0674, type: 3}
+  - {fileID: 8300000, guid: d16725fa34c3c49458e672d57f8f7ae5, type: 3}
+  _dieSoundsSoundLevel: 0.8
+  _attackSounds:
+  - {fileID: 8300000, guid: 4f931682355360b42b5b1baa3a84ca63, type: 3}
+  - {fileID: 8300000, guid: c517125db8f03f54699ea908b913d638, type: 3}
+  - {fileID: 8300000, guid: 7f5c1833d54d7a2458533f7bc81fd0a3, type: 3}
+  _attackSoundsSoundLevel: 0.8

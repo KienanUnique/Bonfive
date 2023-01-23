@@ -14900,6 +14900,8 @@ GameObject:
   - component: {fileID: 1797823976107177897}
   - component: {fileID: 1502882457}
   - component: {fileID: 7478146372000613668}
+  - component: {fileID: 4871504149318153514}
+  - component: {fileID: 2688317669176918298}
   m_Layer: 6
   m_Name: Altar
   m_TagString: Untagged
@@ -15035,6 +15037,117 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2755dbf9258dec342ad7c06c4a118006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &4871504149318153514
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2703826692882266989}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 146
+  DopplerLevel: 1
+  MinDistance: 5
+  MaxDistance: 20
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &2688317669176918298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2703826692882266989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 303f3bd5be2b27a4abfe2131f4724aef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _firewoodBurnSounds:
+  - {fileID: 8300000, guid: cfce0cea076109f478783201b2a9f57f, type: 3}
+  _firewoodBurnSoundsSoundLevel: 0.8
 --- !u!1 &4179310164414605684
 GameObject:
   m_ObjectHideFlags: 0
@@ -15131,6 +15244,7 @@ GameObject:
   - component: {fileID: 8342244394220809235}
   - component: {fileID: 5315316400710296797}
   - component: {fileID: 1362096350247891922}
+  - component: {fileID: 4848583770131849302}
   m_Layer: 6
   m_Name: Attack Zone
   m_TagString: Untagged
@@ -15225,6 +15339,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 510f3f3c4da00ce44b31e4b9a2b378f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4848583770131849302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6062867968045185843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ba0d8bb59d6cc44880112fb3f65012, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackSounds:
+  - {fileID: 8300000, guid: 21c4a490b24ba2045bc815f7626a40ef, type: 3}
+  _attackSoundsSoundLevel: 1
+  _audioSource: {fileID: 4871504149318153514}
 --- !u!1 &6517918625860153029
 GameObject:
   m_ObjectHideFlags: 0
