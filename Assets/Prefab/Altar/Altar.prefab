@@ -15182,8 +15182,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a18f1100549bbf4d80bcaec70475da2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minimumDetectionRadius: 5
-  _maximumDetectionRadius: 12
+  _minimumDetectionRadius: 10
+  _maximumDetectionRadius: 10
 --- !u!114 &8342244394220809235
 MonoBehaviour:
   m_ObjectHideFlags: 0
