@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     [SerializeField] private PlayerController _player;
+    [SerializeField] private ScenesSwitcher _scenesSwitcher;
     [SerializeField] private int _maximumEnemiesCount;
     [SerializeField] private int _maximumFirewoodsCount;
     [SerializeField] private int _soulsCountForWinning;
@@ -28,7 +29,6 @@ public class GameController : MonoBehaviour
             Destroy(gameObject);
         }
 
-        DontDestroyOnLoad(gameObject);
         Initialize();
     }
 
@@ -67,15 +67,25 @@ public class GameController : MonoBehaviour
 
     private void OnEndGameTimerFinish()
     {
-        Debug.Log("EndGameTimerFinish");
+        ProcessLoose();
     }
     private void OnNeedSoulsCountReach()
     {
-        Debug.Log("NeedSoulsCountReach");
+        ProcessWin();
     }
     private void OnPlayerDie()
     {
-        Debug.Log("PlayerDie");
+        ProcessLoose();
+    }
+
+    private void ProcessWin()
+    {
+        _scenesSwitcher.LoadWinScene();
+    }
+
+    private void ProcessLoose()
+    {
+        _scenesSwitcher.LoadLooseScene();
     }
 
     private void OnFirewoodCountChange()
