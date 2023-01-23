@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
     private static EnemiesSoulsCounter _enemiesSoulsCounter;
     private static CountDownTimer _endGameTimer;
     public static GameController Instance = null;
+    private bool _isGameNotFinished = true;
 
     private void Awake()
     {
@@ -92,12 +93,20 @@ public class GameController : MonoBehaviour
 
     private void ProcessWin()
     {
-        _scenesSwitcher.LoadWinScene();
+        if (_isGameNotFinished)
+        {
+            _scenesSwitcher.LoadWinScene();
+            _isGameNotFinished = false;
+        }
     }
 
     private void ProcessLoose()
     {
-        _scenesSwitcher.LoadLooseScene();
+        if (_isGameNotFinished)
+        {
+            _scenesSwitcher.LoadLooseScene();
+            _isGameNotFinished = false;
+        }
     }
 
     private void OnEndGameTimerTick(int minutes, int seconds)
