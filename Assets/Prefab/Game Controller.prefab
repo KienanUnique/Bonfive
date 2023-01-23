@@ -45,9 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
-  _maximumEnemiesCount: 5
-  _maximumFirewoodsCount: 3
-  _soulsCountForWinning: 4
+  _scenesSwitcher: {fileID: 0}
+  _uiVisualController: {fileID: 0}
+  _maximumEnemiesCount: 10
+  _maximumFirewoodsCount: 8
+  _soulsCountForWinning: 50
 --- !u!114 &3882686705926474250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,4 +62,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eab83e6bfb008c4daeab73eaf2d6465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _endWaitSeconds: 20
+  _endWaitSeconds: 300

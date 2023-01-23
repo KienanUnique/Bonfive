@@ -950,7 +950,6 @@ GameObject:
   - component: {fileID: 7186203573310170020}
   - component: {fileID: 7186203573310170023}
   - component: {fileID: 7186203573310170022}
-  - component: {fileID: 7186203573310170018}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1039,21 +1038,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &7186203573310170018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7186203573310169945}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9bd318b06a3db04ea2da9f87b99dc5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _uiVisualHp: {fileID: 7186203571930751312}
-  _uiVisualSouls: {fileID: 7186203571729395515}
-  _uiVisualTimer: {fileID: 7186203573644403168}
 --- !u!1 &7186203573367978992
 GameObject:
   m_ObjectHideFlags: 0
@@ -1217,6 +1201,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7186203573577614748}
+  - component: {fileID: 5143469523644696406}
   m_Layer: 0
   m_Name: Player UI
   m_TagString: Untagged
@@ -1240,6 +1225,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5143469523644696406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7186203573577614751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9bd318b06a3db04ea2da9f87b99dc5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uiVisualHp: {fileID: 7186203571930751312}
+  _uiVisualSouls: {fileID: 7186203571729395515}
+  _uiVisualTimer: {fileID: 7186203573644403168}
 --- !u!1 &7186203573644403172
 GameObject:
   m_ObjectHideFlags: 0

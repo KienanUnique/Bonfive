@@ -49,7 +49,6 @@ namespace Assets.Script.Player
         {
             destroyedFirewood.Destroyed -= OnFirewoodDestroy;
             _firewoodControllers.Remove(destroyedFirewood);
-            Debug.Log($"Destroyed, cuurent count: {_firewoodControllers.Count}");
         }
     }
 }
