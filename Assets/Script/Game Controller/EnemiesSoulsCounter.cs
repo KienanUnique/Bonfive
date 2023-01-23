@@ -1,14 +1,17 @@
 public class EnemiesSoulsCounter
 {
     public delegate void OnNeedSoulsCountReach();
+    public delegate void OnSoulsCountChange(int currentSoulsCount, int requaredSoulsCount);
     public event OnNeedSoulsCountReach NeedSoulsCountReach;
-    private readonly int _needSoulsCount;
+    public event OnSoulsCountChange SoulsCountChange;
+    private int _needSoulsCount;
     private int _currentSoulsCount = 0;
     private bool _wasNeedSoulsCountReached = false;
 
-    public EnemiesSoulsCounter(int soulsCountForWinning)
+    public void SetNeedSoulsCount(int soulsCountForWinning)
     {
         _needSoulsCount = soulsCountForWinning;
+        SoulsCountChange?.Invoke(_currentSoulsCount, _needSoulsCount);
     }
 
     public void AddSoul()
@@ -23,6 +26,7 @@ public class EnemiesSoulsCounter
             _wasNeedSoulsCountReached = true;
             NeedSoulsCountReach?.Invoke();
         }
+        SoulsCountChange?.Invoke(_currentSoulsCount, _needSoulsCount);
     }
 
 }

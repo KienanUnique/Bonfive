@@ -10,6 +10,8 @@ namespace Assets.Script.Player
     {
         public delegate void OnCharacterDie();
         public event OnCharacterDie Die;
+        public delegate void OnCharacterHpChange(int currentHp, int maximumHp);
+        public event OnCharacterHpChange HpChange;
         public Vector2 CurrentPosition => transform.position;
         private const float MinimalInputMagnitude = 0.5f;
         private Maincontrols _mainControls;
@@ -77,6 +79,7 @@ namespace Assets.Script.Player
             _mainControls.Enable();
             _mainControls.CharacterControl.UseAction.performed += ctx => OnUseActionPerformed();
             _playerCharacter.Die += OnDie;
+            _playerCharacter.HpChange += OnHpChange;
         }
 
         private void OnDisable()
@@ -84,6 +87,7 @@ namespace Assets.Script.Player
             _mainControls.Disable();
             _mainControls.CharacterControl.UseAction.performed -= ctx => OnUseActionPerformed();
             _playerCharacter.Die -= OnDie;
+            _playerCharacter.HpChange -= OnHpChange;
         }
 
         private void OnDie()
@@ -93,6 +97,11 @@ namespace Assets.Script.Player
             _playerVisual.StartDieAnimation();
             _playerInteractionWithWorld.StopInterracrtingWithCurrentObjects();
             Die?.Invoke();
+        }
+
+        private void OnHpChange(int currentHp, int maximumHp)
+        {
+            HpChange?.Invoke(currentHp, maximumHp);
         }
     }
 }

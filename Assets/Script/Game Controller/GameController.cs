@@ -6,6 +6,7 @@ public class GameController : MonoBehaviour
 {
     [SerializeField] private PlayerController _player;
     [SerializeField] private ScenesSwitcher _scenesSwitcher;
+    [SerializeField] private UiVisualController _uiVisualController;
     [SerializeField] private int _maximumEnemiesCount;
     [SerializeField] private int _maximumFirewoodsCount;
     [SerializeField] private int _soulsCountForWinning;
@@ -32,6 +33,11 @@ public class GameController : MonoBehaviour
         Initialize();
     }
 
+    private void Start()
+    {
+        _enemiesSoulsCounter.SetNeedSoulsCount(_soulsCountForWinning);
+    }
+
     private void Initialize()
     {
         PlayerTransform = _player.transform;
@@ -39,7 +45,7 @@ public class GameController : MonoBehaviour
         GlobalFirewoodsRegistrator = new FirewoodsRegistrator();
         GlobalEnemySpawnersRegistrator = new EnemySpawnersRegistrator();
         GlobalFirewoodSpawnersRegistrator = new FirewoodSpawnersRegistrator();
-        _enemiesSoulsCounter = new EnemiesSoulsCounter(_soulsCountForWinning);
+        _enemiesSoulsCounter = new EnemiesSoulsCounter();
         _endGameTimer = GetComponent<CountDownTimer>();
     }
 
@@ -52,6 +58,9 @@ public class GameController : MonoBehaviour
         _enemiesSoulsCounter.NeedSoulsCountReach += OnNeedSoulsCountReach;
         _endGameTimer.Finish += OnEndGameTimerFinish;
         _player.Die += OnPlayerDie;
+        _player.HpChange += OnHpChange;
+        _enemiesSoulsCounter.SoulsCountChange += OnSoulsCountChange;
+        _endGameTimer.Tick += OnEndGameTimerTick;
     }
 
     private void OnDisable()
@@ -63,6 +72,9 @@ public class GameController : MonoBehaviour
         _enemiesSoulsCounter.NeedSoulsCountReach -= OnNeedSoulsCountReach;
         _endGameTimer.Finish -= OnEndGameTimerFinish;
         _player.Die -= OnPlayerDie;
+        _player.HpChange -= OnHpChange;
+        _enemiesSoulsCounter.SoulsCountChange -= OnSoulsCountChange;
+        _endGameTimer.Tick -= OnEndGameTimerTick;
     }
 
     private void OnEndGameTimerFinish()
@@ -86,6 +98,21 @@ public class GameController : MonoBehaviour
     private void ProcessLoose()
     {
         _scenesSwitcher.LoadLooseScene();
+    }
+
+    private void OnEndGameTimerTick(int minutes, int seconds)
+    {
+        _uiVisualController.UpdateTimer(minutes, seconds);
+    }
+
+    private void OnHpChange(int currentHp, int maximumHp)
+    {
+        _uiVisualController.UpdateHp(currentHp, maximumHp);
+    }
+
+    private void OnSoulsCountChange(int currentSoulsCount, int requaredSoulsCount)
+    {
+        _uiVisualController.UpdateSouls(currentSoulsCount, requaredSoulsCount);
     }
 
     private void OnFirewoodCountChange()
