@@ -44,6 +44,7 @@ public class AltarController : MonoBehaviour
     private void OnFirewoodEnteredAltar(FirewoodController _enteredFirewoodController)
     {
         _altarAudio.PlayFirewoodBurnSound();
+        _safeZoneController.HealPlayer();
         StopCoroutine(_putFireOutWithDelay);
         _putFireOutWithDelay = PutFireOutWithDelay();
         StartCoroutine(_putFireOutWithDelay);

@@ -4,12 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(CircleCollider2D))]
 public class EnemyAttackTriggerZonePlayerDetector : MonoBehaviour
 {
-    public bool IsPlayerInsideTriggerZone {get; private set;}
-    private CircleCollider2D _triggerZone;
-    private void Awake()
-    {
-        _triggerZone = GetComponent<CircleCollider2D>();
-    }
+    public bool IsPlayerInsideTriggerZone { get; private set; }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
