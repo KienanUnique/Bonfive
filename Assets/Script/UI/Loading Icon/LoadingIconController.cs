@@ -25,7 +25,7 @@ public class LoadingIconController : MonoBehaviour
     {
         if (_animationStarted)
         {
-            _loadingIconImageGameObject.transform.Rotate(0, 0, -1 * Time.deltaTime * _rotationSpeed, Space.Self);
+            _loadingIconImageGameObject.transform.Rotate(0, 0, Time.deltaTime * _rotationSpeed, Space.Self);
         }
     }
 }
