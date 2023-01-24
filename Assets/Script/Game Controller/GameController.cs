@@ -1,3 +1,4 @@
+using System.Collections;
 using Assets.Script.Player;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private int _maximumEnemiesCount;
     [SerializeField] private int _maximumFirewoodsCount;
     [SerializeField] private int _soulsCountForWinning;
+    [SerializeField] private float _loadEndingSceneDelaySeconds;
     public static Transform PlayerTransform;
     public static EnemiesRegistrator GlobalEnemiesRegistrator { get; private set; }
     public static FirewoodsRegistrator GlobalFirewoodsRegistrator { get; private set; }
@@ -19,6 +21,11 @@ public class GameController : MonoBehaviour
     private static CountDownTimer _endGameTimer;
     public static GameController Instance = null;
     private bool _isGameNotFinished = true;
+
+    private enum GameEndings
+    {
+        Win, Loose
+    }
 
     private void Awake()
     {
@@ -80,32 +87,40 @@ public class GameController : MonoBehaviour
 
     private void OnEndGameTimerFinish()
     {
-        ProcessLoose();
+        EndGame(GameEndings.Win);
     }
     private void OnNeedSoulsCountReach()
     {
-        ProcessWin();
+        EndGame(GameEndings.Loose);
     }
     private void OnPlayerDie()
     {
-        ProcessLoose();
+        EndGame(GameEndings.Loose);
     }
 
-    private void ProcessWin()
+    private void EndGame(GameEndings ending)
     {
         if (_isGameNotFinished)
         {
-            _scenesSwitcher.LoadWinScene();
+            GlobalEnemiesRegistrator.DisableAllACtionsForAllEnemies();
+            GlobalEnemySpawnersRegistrator.DisableAllSpawners();
+            GlobalFirewoodSpawnersRegistrator.DisableAllSpawners();
             _isGameNotFinished = false;
+            StartCoroutine(LoadEndingScene(ending));
         }
     }
 
-    private void ProcessLoose()
+    private IEnumerator LoadEndingScene(GameEndings ending)
     {
-        if (_isGameNotFinished)
+        yield return new WaitForSeconds(_loadEndingSceneDelaySeconds);
+        switch (ending)
         {
-            _scenesSwitcher.LoadLooseScene();
-            _isGameNotFinished = false;
+            case GameEndings.Win:
+                _scenesSwitcher.LoadWinScene();
+                break;
+            case GameEndings.Loose:
+                _scenesSwitcher.LoadLooseScene();
+                break;
         }
     }
 

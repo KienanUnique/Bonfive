@@ -26,6 +26,7 @@ public class SkeletonController : MonoBehaviour
     private int _currentWaypointIndex;
     private bool _isAttackNotCooldowning = true;
     private bool _wasInitialized = false;
+    private bool _isAllActionsEnabled = true;
 
     private void Awake()
     {
@@ -54,6 +55,7 @@ public class SkeletonController : MonoBehaviour
         _enemyVisual.MoveAnimationStepMoment += OnMoveAnimationStepMoment;
         _enemyController.AcceptedDisableMovingRequest += OnAcceptedDisableMovingRequest;
         _enemyController.AcceptedEnableMovingRequest += OnAcceptedEnableMovingRequest;
+        _enemyController.AcceptedDisableAllActionsRequest += OnAcceptedDisableAllActionsRequest;
     }
 
     private void OnDisable()
@@ -67,6 +69,7 @@ public class SkeletonController : MonoBehaviour
         _enemyVisual.MoveAnimationStepMoment -= OnMoveAnimationStepMoment;
         _enemyController.AcceptedDisableMovingRequest -= OnAcceptedDisableMovingRequest;
         _enemyController.AcceptedEnableMovingRequest -= OnAcceptedEnableMovingRequest;
+        _enemyController.AcceptedDisableAllActionsRequest -= OnAcceptedDisableAllActionsRequest;
     }
 
     private void OnInitialize(Transform targetTransform)
@@ -78,7 +81,7 @@ public class SkeletonController : MonoBehaviour
 
     private void Update()
     {
-        if (_isAttackNotCooldowning && _enemyAttackTriggerZonePlayerDetector.IsPlayerInsideTriggerZone && _enemyCharacter.IsAlive)
+        if (_isAttackNotCooldowning && _enemyAttackTriggerZonePlayerDetector.IsPlayerInsideTriggerZone && _enemyCharacter.IsAlive && _isAllActionsEnabled)
         {
             _isAttackNotCooldowning = false;
             _enemyVisual.StartAttackAnimation();
@@ -88,7 +91,7 @@ public class SkeletonController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_currentPath == null || !_enemyCharacter.IsAlive)
+        if (_currentPath == null || !_enemyCharacter.IsAlive || !_isAllActionsEnabled)
         {
             return;
         }
@@ -153,6 +156,13 @@ public class SkeletonController : MonoBehaviour
     private void OnMoveAnimationStepMoment()
     {
         _enemyAudio.PlayStepSound();
+    }
+
+    private void OnAcceptedDisableAllActionsRequest()
+    {
+        _enemyVisual.DisableMoving();
+        _enemyMoving.DisableMoving();
+        _isAllActionsEnabled = false;
     }
 
     private void OnAcceptedDisableMovingRequest()
