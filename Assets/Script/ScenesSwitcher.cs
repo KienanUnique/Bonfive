@@ -7,23 +7,19 @@ public class ScenesSwitcher : MonoBehaviour
     private const string WinSceneName = "Win";
     private const string LooseSceneName = "Loose";
     private const string TutorialSceneName = "Tutorial";
-    public void LoadMainLevelScene()
-    {
-        SceneManager.LoadScene(MainLevelSceneName);
-    }
+    private bool _isAlreadyLoading = false;
 
-    public void LoadWinScene()
+    public void LoadMainLevelScene() => LoadScene(MainLevelSceneName);
+    public void LoadWinScene() => LoadScene(WinSceneName);
+    public void LoadLooseScene() => LoadScene(LooseSceneName);
+    public void LoadTutorialScene() => LoadScene(TutorialSceneName);
+    private void LoadScene(string sceneName)
     {
-        SceneManager.LoadScene(WinSceneName);
-    }
-
-    public void LoadLooseScene()
-    {
-        SceneManager.LoadScene(LooseSceneName);
-    }
-
-    public void LoadTutorialScene()
-    {
-        SceneManager.LoadScene(TutorialSceneName);
+        if (_isAlreadyLoading)
+        {
+            return;
+        }
+        _isAlreadyLoading = true;
+        SceneManager.LoadSceneAsync(sceneName);
     }
 }
