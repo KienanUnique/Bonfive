@@ -3,6 +3,8 @@ using Assets.Script.Player;
 using UnityEngine;
 
 [RequireComponent(typeof(CountDownTimer))]
+[RequireComponent(typeof(AllFirewoodsManager))]
+[RequireComponent(typeof(AllEnemiesManager))]
 public class GameController : MonoBehaviour
 {
     [SerializeField] private PlayerController _player;
@@ -12,14 +14,11 @@ public class GameController : MonoBehaviour
     [SerializeField] private int _maximumFirewoodsCount;
     [SerializeField] private int _soulsCountForWinning;
     [SerializeField] private float _loadEndingSceneDelaySeconds;
-    public static Transform PlayerTransform;
-    public static EnemiesRegistrator GlobalEnemiesRegistrator { get; private set; }
-    public static FirewoodsRegistrator GlobalFirewoodsRegistrator { get; private set; }
-    public static EnemySpawnersRegistrator GlobalEnemySpawnersRegistrator { get; private set; }
-    public static FirewoodSpawnersRegistrator GlobalFirewoodSpawnersRegistrator { get; private set; }
-    private static EnemiesSoulsCounter _enemiesSoulsCounter;
-    private static CountDownTimer _endGameTimer;
-    public static GameController Instance = null;
+    public static Transform PlayerTransform { get; private set; }
+    private EnemiesSoulsCounter _enemiesSoulsCounter;
+    private CountDownTimer _endGameTimer;
+    private AllFirewoodsManager _allFirewoodsManager;
+    private AllEnemiesManager _allEnemiesManager;
     private bool _isGameNotFinished = true;
 
     private enum GameEndings
@@ -29,16 +28,11 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else if (Instance == this)
-        {
-            Destroy(gameObject);
-        }
-
-        Initialize();
+        PlayerTransform = _player.transform;
+        _enemiesSoulsCounter = new EnemiesSoulsCounter();
+        _allFirewoodsManager = GetComponent<AllFirewoodsManager>();
+        _endGameTimer = GetComponent<CountDownTimer>();
+        _allEnemiesManager = GetComponent<AllEnemiesManager>();
     }
 
     private void Start()
@@ -46,23 +40,9 @@ public class GameController : MonoBehaviour
         _enemiesSoulsCounter.SetNeedSoulsCount(_soulsCountForWinning);
     }
 
-    private void Initialize()
-    {
-        PlayerTransform = _player.transform;
-        GlobalEnemiesRegistrator = new EnemiesRegistrator();
-        GlobalFirewoodsRegistrator = new FirewoodsRegistrator();
-        GlobalEnemySpawnersRegistrator = new EnemySpawnersRegistrator();
-        GlobalFirewoodSpawnersRegistrator = new FirewoodSpawnersRegistrator();
-        _enemiesSoulsCounter = new EnemiesSoulsCounter();
-        _endGameTimer = GetComponent<CountDownTimer>();
-    }
-
     private void OnEnable()
     {
-        GlobalEnemiesRegistrator.ObjectAdd += OnEnemieAdd;
-        GlobalEnemiesRegistrator.ObjectRemove += OnEnemieRemove;
-        GlobalFirewoodsRegistrator.ObjectAdd += OnFirewoodCountChange;
-        GlobalFirewoodsRegistrator.ObjectRemove += OnFirewoodCountChange;
+        _allEnemiesManager.EnemyDie += OnEnemieRemove;
         _enemiesSoulsCounter.NeedSoulsCountReach += OnNeedSoulsCountReach;
         _endGameTimer.Finish += OnEndGameTimerFinish;
         _player.Die += OnPlayerDie;
@@ -73,10 +53,7 @@ public class GameController : MonoBehaviour
 
     private void OnDisable()
     {
-        GlobalEnemiesRegistrator.ObjectAdd -= OnEnemieAdd;
-        GlobalEnemiesRegistrator.ObjectRemove -= OnEnemieRemove;
-        GlobalFirewoodsRegistrator.ObjectAdd -= OnFirewoodCountChange;
-        GlobalFirewoodsRegistrator.ObjectRemove -= OnFirewoodCountChange;
+        _allEnemiesManager.EnemyDie -= OnEnemieRemove;
         _enemiesSoulsCounter.NeedSoulsCountReach -= OnNeedSoulsCountReach;
         _endGameTimer.Finish -= OnEndGameTimerFinish;
         _player.Die -= OnPlayerDie;
@@ -87,11 +64,11 @@ public class GameController : MonoBehaviour
 
     private void OnEndGameTimerFinish()
     {
-        EndGame(GameEndings.Win);
+        EndGame(GameEndings.Loose);
     }
     private void OnNeedSoulsCountReach()
     {
-        EndGame(GameEndings.Loose);
+        EndGame(GameEndings.Win);
     }
     private void OnPlayerDie()
     {
@@ -102,9 +79,9 @@ public class GameController : MonoBehaviour
     {
         if (_isGameNotFinished)
         {
-            GlobalEnemiesRegistrator.DisableAllACtionsForAllEnemies();
-            GlobalEnemySpawnersRegistrator.DisableAllSpawners();
-            GlobalFirewoodSpawnersRegistrator.DisableAllSpawners();
+            _allFirewoodsManager.DisableSpawning();
+            _allEnemiesManager.DisableSpawning();
+            _allEnemiesManager.DisableAllACtionsForAllEnemies();
             _isGameNotFinished = false;
             StartCoroutine(LoadEndingScene(ending));
         }
@@ -139,43 +116,8 @@ public class GameController : MonoBehaviour
         _uiVisualController.UpdateSouls(currentSoulsCount, requaredSoulsCount);
     }
 
-    private void OnFirewoodCountChange()
-    {
-        ControlFirewoodsCount();
-    }
-
-    private void OnEnemieAdd()
-    {
-        ControlEnemiesCount();
-    }
-
     private void OnEnemieRemove()
     {
         _enemiesSoulsCounter.AddSoul();
-        ControlEnemiesCount();
-    }
-
-    private void ControlEnemiesCount()
-    {
-        if (GlobalEnemiesRegistrator.Count >= _maximumEnemiesCount && GlobalEnemySpawnersRegistrator.IsEnabled)
-        {
-            GlobalEnemySpawnersRegistrator.DisableAllSpawners();
-        }
-        else if (GlobalEnemiesRegistrator.Count < _maximumEnemiesCount && !GlobalEnemySpawnersRegistrator.IsEnabled)
-        {
-            GlobalEnemySpawnersRegistrator.EnableAllSpawners();
-        }
-    }
-
-    private void ControlFirewoodsCount()
-    {
-        if (GlobalFirewoodsRegistrator.Count >= _maximumFirewoodsCount && GlobalFirewoodSpawnersRegistrator.IsEnabled)
-        {
-            GlobalFirewoodSpawnersRegistrator.DisableAllSpawners();
-        }
-        else if (GlobalFirewoodsRegistrator.Count < _maximumFirewoodsCount && !GlobalFirewoodSpawnersRegistrator.IsEnabled)
-        {
-            GlobalFirewoodSpawnersRegistrator.EnableAllSpawners();
-        }
     }
 }

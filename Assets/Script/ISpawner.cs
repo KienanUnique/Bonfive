@@ -1,4 +1,5 @@
-public interface ISpawner{
-    public void StopSpawning();
-    public void StartSpawning();
+public interface ISpawner
+{
+    public bool IsReadyToUse { get; }
+    public void Spawn();
 }

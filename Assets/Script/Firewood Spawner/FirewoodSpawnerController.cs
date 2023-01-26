@@ -4,47 +4,38 @@ using UnityEngine;
 public class FirewoodSpawnerController : MonoBehaviour, ISpawner
 {
     [SerializeField] private GameObject[] _firewoodsVariations;
-    [SerializeField] private float _minimumSpawnDelaySeconds;
-    [SerializeField] private float _maximumSpawnDelaySeconds;
+    [SerializeField] private float _spawnCooldownSeconds;
     [SerializeField] private FirewoodSpawnerSpawnZoneHandler _firewoodSpawnerSpawnZoneHandler;
+    public bool IsReadyToUse => !_isUnderCooldown && _firewoodSpawnerSpawnZoneHandler.IsSpawnZoneEmpty;
     private GameObject RandomFirewood => _firewoodsVariations[Random.Range(0, _firewoodsVariations.Length)];
-    private float RandomDelayTime => Random.Range(_minimumSpawnDelaySeconds, _maximumSpawnDelaySeconds);
-    private IEnumerator _randomDelayedFirewoodSpawn;
-    private bool _canSpawn = true;
-
-    public void StopSpawning()
-    {
-        _canSpawn = false;
-        StopCoroutine(_randomDelayedFirewoodSpawn);
-    }
-
-    public void StartSpawning()
-    {
-        _canSpawn = true;
-        _randomDelayedFirewoodSpawn = RandomDelayedFirewoodSpawn();
-        StartCoroutine(_randomDelayedFirewoodSpawn);
-    }
+    private bool _isUnderCooldown = false;
 
     private void Start()
     {
-        GameController.GlobalFirewoodSpawnersRegistrator.Add(this);
+        AllFirewoodsManager.Registrate(this);
     }
 
     private void OnDestroy()
     {
-        GameController.GlobalFirewoodSpawnersRegistrator.Remove(this);
+        if (AllFirewoodsManager.Instance != null)
+        {
+            AllFirewoodsManager.Remove(this);
+        }
     }
 
-    private IEnumerator RandomDelayedFirewoodSpawn()
+    private IEnumerator StartCooldown()
     {
-        while (_canSpawn)
-        {
-            yield return new WaitForSeconds(RandomDelayTime);
-            if (_canSpawn && _firewoodSpawnerSpawnZoneHandler.IsSpawnZoneEmpty)
-            {
-                Instantiate(RandomFirewood, transform.position, Quaternion.identity);
-            }
-        }
+        _isUnderCooldown = true;
+        yield return new WaitForSeconds(_spawnCooldownSeconds);
+        _isUnderCooldown = false;
+    }
 
+    public void Spawn()
+    {
+        if (IsReadyToUse)
+        {
+            Instantiate(RandomFirewood, transform.position, Quaternion.identity);
+            StartCoroutine(StartCooldown());
+        }
     }
 }

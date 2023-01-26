@@ -1,29 +1,10 @@
+using UnityEngine;
 public class SpawnersRegistrator<T> : ObjectRegistrator<T> where T : ISpawner
 {
-    public bool IsEnabled {get; private set;} = true;
-     public void DisableAllSpawners(){
-        IsEnabled = false;
-        foreach(var spawner in _objectsList){
-            spawner.StopSpawning();
-        }
-    }
-
-    public void EnableAllSpawners(){
-        IsEnabled = true;
-        foreach(var spawner in _objectsList){
-            spawner.StartSpawning();
-        }
-    }
-
-    public override void Add(T objectToAdd)
+    public bool HaveReadyToUseSpawner => _objectsList.Exists(spawner => spawner.IsReadyToUse);
+    public void SpawnInRandomAvailebleSpawner()
     {
-        var spawnerObject = objectToAdd as ISpawner;
-        if(IsEnabled){
-            spawnerObject.StartSpawning();
-        }
-        else{
-            spawnerObject.StopSpawning();
-        }
-        base.Add(objectToAdd);
+        var readyToUseSpawners = _objectsList.FindAll(spawner => spawner.IsReadyToUse);
+        readyToUseSpawners[Random.Range(0, readyToUseSpawners.Count)].Spawn();
     }
 }

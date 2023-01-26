@@ -46,8 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemiesVariations:
   - {fileID: 7878097244634604833, guid: 199c0a17ef4554343a7ac60171d6480e, type: 3}
-  _minimumSpawnDelaySeconds: 5
-  _maximumSpawnDelaySeconds: 10
+  _spawnCooldownSeconds: 3
   _enemiesSpawnerSpawnZoneHandler: {fileID: 3839782036082372501}
 --- !u!1 &3839782036082372502
 GameObject:

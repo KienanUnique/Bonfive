@@ -118,6 +118,5 @@ MonoBehaviour:
   - {fileID: 8457439794814274909, guid: f948f4d5fa7a41d48af21d69d4a0d2b8, type: 3}
   - {fileID: 7851087399806479161, guid: 3da1368692839304aa6991cd7705982b, type: 3}
   - {fileID: 3098053030280700077, guid: 7bf6cbcfdb4e0d643852f3f3fab7fb8f, type: 3}
-  _minimumSpawnDelaySeconds: 5
-  _maximumSpawnDelaySeconds: 10
+  _spawnCooldownSeconds: 10
   _firewoodSpawnerSpawnZoneHandler: {fileID: 6452489445060251822}

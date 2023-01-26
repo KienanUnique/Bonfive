@@ -52,13 +52,16 @@ namespace Assets.Script.InteractableItems.Firewood
 
         private void Start()
         {
-            GameController.GlobalFirewoodsRegistrator.Add(this);
+            AllFirewoodsManager.Registrate(this);
         }
         private void OnDestroy()
         {
             _isDestroyed = true;
             Destroyed?.Invoke(this);
-            GameController.GlobalFirewoodsRegistrator.Remove(this);
+            if (AllFirewoodsManager.Instance != null)
+            {
+                AllFirewoodsManager.Remove(this);
+            }
         }
 
     }

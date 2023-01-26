@@ -36,11 +36,14 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
-        GameController.GlobalEnemiesRegistrator.Add(this);
+        AllEnemiesManager.Registrate(this);
     }
 
     private void OnDestroy()
     {
-        GameController.GlobalEnemiesRegistrator.Remove(this);
+        if (AllEnemiesManager.Instance != null)
+        {
+            AllEnemiesManager.Remove(this);
+        }
     }
 }

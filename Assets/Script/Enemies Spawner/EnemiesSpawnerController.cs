@@ -4,51 +4,41 @@ using UnityEngine;
 public class EnemiesSpawnerController : MonoBehaviour, ISpawner
 {
     [SerializeField] private GameObject[] _enemiesVariations;
-    [SerializeField] private float _minimumSpawnDelaySeconds;
-    [SerializeField] private float _maximumSpawnDelaySeconds;
+    [SerializeField] private float _spawnCooldownSeconds;
     [SerializeField] private EnemiesSpawnerSpawnZoneHandler _enemiesSpawnerSpawnZoneHandler;
+    public bool IsReadyToUse => !_isUnderCooldown && _enemiesSpawnerSpawnZoneHandler.IsSpawnZoneEmpty;
     private GameObject RandomEnemy => _enemiesVariations[Random.Range(0, _enemiesVariations.Length)];
-    private float RandomDelayTime => Random.Range(_minimumSpawnDelaySeconds, _maximumSpawnDelaySeconds);
-    private IEnumerator _randomDelayedEnemySpawn;
-    private bool _canSpawn = true;
-
-    public void StopSpawning()
-    {
-        _canSpawn = false;
-        StopCoroutine(_randomDelayedEnemySpawn);
-    }
-
-    public void StartSpawning()
-    {
-        _canSpawn = true;
-        _randomDelayedEnemySpawn = RandomDelayedEnemySpawn();
-        StartCoroutine(_randomDelayedEnemySpawn);
-    }
+    private bool _isUnderCooldown = false;
 
     private void Start()
     {
-        GameController.GlobalEnemySpawnersRegistrator.Add(this);
+        AllEnemiesManager.Registrate(this);
     }
 
     private void OnDestroy()
     {
-        GameController.GlobalEnemySpawnersRegistrator.Remove(this);
+        if(AllEnemiesManager.Instance != null){
+            AllEnemiesManager.Remove(this);
+        }
     }
 
-    private IEnumerator RandomDelayedEnemySpawn()
+    private IEnumerator StartCooldown()
     {
-        while (_canSpawn)
-        {
-            yield return new WaitForSeconds(RandomDelayTime);
-            if (_canSpawn && _enemiesSpawnerSpawnZoneHandler.IsSpawnZoneEmpty)
-            {
-                GameObject spawnedEnemy = Instantiate(RandomEnemy, transform.position, Quaternion.identity);
-                if (spawnedEnemy.TryGetComponent<EnemyController>(out EnemyController enemyController))
-                {
-                    enemyController.InitializeEnemyParameters(GameController.PlayerTransform);
-                }
-            }
-        }
+        _isUnderCooldown = true;
+        yield return new WaitForSeconds(_spawnCooldownSeconds);
+        _isUnderCooldown = false;
+    }
 
+    public void Spawn()
+    {
+        if (IsReadyToUse)
+        {
+            GameObject spawnedEnemy = Instantiate(RandomEnemy, transform.position, Quaternion.identity);
+            if (spawnedEnemy.TryGetComponent<EnemyController>(out EnemyController enemyController))
+            {
+                enemyController.InitializeEnemyParameters(GameController.PlayerTransform);
+            }
+            StartCoroutine(StartCooldown());
+        }
     }
 }
