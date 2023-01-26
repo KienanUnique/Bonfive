@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using Assets.Script.InteractableItems.Firewood;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(AltarFirewoodDetector))]
 [RequireComponent(typeof(AltarAudio))]
@@ -14,6 +15,8 @@ public class AltarController : MonoBehaviour
     [SerializeField] private int _countOfSteps;
     [SerializeField] private int _startStep;
     [SerializeField] private float _fadingFireStepSeconds;
+    private int _currentStep;
+    private List<IStepsControllable> _stepsControllableObjects;
     private AltarFirewoodDetector _altarFirewoodDetector;
     private AltarAudio _altarAudio;
     private IEnumerator _putFireOutWithDelay;
@@ -25,10 +28,14 @@ public class AltarController : MonoBehaviour
     }
     private void Start()
     {
-        _safeZoneController.SetupSteps(_countOfSteps, _startStep - 1);
-        _fireEffectVisual.SetupSteps(_countOfSteps, _startStep);
-        _fireGlowEffectVisual.SetupSteps(_countOfSteps, _startStep);
-        _attackZoneController.SetupSteps(_countOfSteps, _startStep);
+        _countOfSteps--;
+        _currentStep = _startStep;
+        _stepsControllableObjects = new List<IStepsControllable>();
+        _stepsControllableObjects.Add(_safeZoneController);
+        _stepsControllableObjects.Add(_fireEffectVisual);
+        _stepsControllableObjects.Add(_fireGlowEffectVisual);
+        _stepsControllableObjects.Add(_attackZoneController);
+        _stepsControllableObjects.ForEach(stepsControllable => stepsControllable.SetupSteps(_countOfSteps, _startStep));
         _putFireOutWithDelay = PutFireOutWithDelay();
         StartCoroutine(_putFireOutWithDelay);
     }
@@ -41,6 +48,11 @@ public class AltarController : MonoBehaviour
         _altarFirewoodDetector.FirewoodEnter -= OnFirewoodEnteredAltar;
     }
 
+    private void UpdateStepsControllableObjects()
+    {
+        _stepsControllableObjects.ForEach(stepsControllable => stepsControllable.ApplyNewStep(_currentStep));
+    }
+
     private void OnFirewoodEnteredAltar(FirewoodController _enteredFirewoodController)
     {
         _altarAudio.PlayFirewoodBurnSound();
@@ -50,10 +62,11 @@ public class AltarController : MonoBehaviour
         StartCoroutine(_putFireOutWithDelay);
         _enteredFirewoodController.DestroyInFire();
         _runesVisual.StartRuneGlowAnimation();
-        _safeZoneController.IncreaseSafeZone();
-        _fireEffectVisual.IncreaseFireParticleSize();
-        _fireGlowEffectVisual.IncreaseGlowEffectRadius();
-        _attackZoneController.IncreaseAttackZone();
+        if (_currentStep < _countOfSteps)
+        {
+            _currentStep++;
+            UpdateStepsControllableObjects();
+        }
         _attackZoneController.AttackEnemies();
     }
 
@@ -62,10 +75,11 @@ public class AltarController : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(_fadingFireStepSeconds);
-            _safeZoneController.DecreaseSafeZone();
-            _fireEffectVisual.DecreaseFireParticleSize();
-            _fireGlowEffectVisual.DecreaseGlowEffectRadius();
-            _attackZoneController.DecreaseAttackZone();
+            if (_currentStep > 0)
+            {
+                _currentStep--;
+                UpdateStepsControllableObjects();
+            }
         }
 
     }

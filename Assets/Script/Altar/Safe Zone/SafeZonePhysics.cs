@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(PointEffector2D))]
-public class SafeZonePhysics : MonoBehaviour
+public class SafeZonePhysics : MonoBehaviour, IStepsControllable
 {
     [Header("Effector Force Magnitude")]
     [SerializeField] private float _minimumForceMagnitude;
@@ -24,39 +24,13 @@ public class SafeZonePhysics : MonoBehaviour
     public void SetupSteps(int stepsCount, int startStep)
     {
         _forceMagnitudeStep = (_maximumForceMagnitude - _minimumForceMagnitude) / stepsCount;
-        _pointEffector2D.forceMagnitude = _minimumForceMagnitude + _forceMagnitudeStep * startStep;
-
         _colliderRadiusStep = (_maximumColliderRadius - _minimumColliderRadius) / stepsCount;
-        _collider.radius = _minimumColliderRadius + _colliderRadiusStep * startStep;
+        ApplyNewStep(startStep);
     }
 
-    public void IncreaseForce()
+    public void ApplyNewStep(int newStep)
     {
-        float newforceMagnitude = _pointEffector2D.forceMagnitude + _forceMagnitudeStep;
-        if (newforceMagnitude <= _maximumForceMagnitude)
-        {
-            _pointEffector2D.forceMagnitude = newforceMagnitude;
-        }
-
-        float newColliderRadius = _collider.radius + _colliderRadiusStep;
-        if (newColliderRadius <= _maximumColliderRadius)
-        {
-            _collider.radius = newColliderRadius;
-        }
+        _collider.radius = _minimumColliderRadius + _colliderRadiusStep * newStep;
+        _pointEffector2D.forceMagnitude = _minimumForceMagnitude + _forceMagnitudeStep * newStep;
     }
-
-    public void DecreaseForce()
-    {
-        float newforceMagnitude = _pointEffector2D.forceMagnitude - _forceMagnitudeStep;
-        if (newforceMagnitude >= _minimumForceMagnitude)
-        {
-            _pointEffector2D.forceMagnitude = newforceMagnitude;
-        }
-        float newColliderRadius = _collider.radius - _colliderRadiusStep;
-        if (newColliderRadius >= _minimumColliderRadius)
-        {
-            _collider.radius = newColliderRadius;
-        }
-    }
-
 }

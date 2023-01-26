@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(ParticleSystem))]
-public class FireEffectVisual : MonoBehaviour
+public class FireEffectVisual : MonoBehaviour, IStepsControllable
 {
     [SerializeField] private float _minimumParticleSize;
     [SerializeField] private float _maximumParticleSize;
@@ -13,33 +13,16 @@ public class FireEffectVisual : MonoBehaviour
     public void SetupSteps(int stepsCount, int startStep)
     {
         _fireParticleSizeStep = (_maximumParticleSize - _minimumParticleSize) / stepsCount;
-        SetNewFireParticleSize(_minimumParticleSize + startStep * _fireParticleSizeStep);
+        ApplyNewStep(startStep);
     }
 
-    public void IncreaseFireParticleSize()
+    public void ApplyNewStep(int newStep)
     {
-        float newGlowEffectSize = CurrentParticleSizeSize + _fireParticleSizeStep;
-        if (newGlowEffectSize <= _maximumParticleSize)
-        {
-            SetNewFireParticleSize(newGlowEffectSize);
-        }
-    }
-    public void DecreaseFireParticleSize()
-    {
-        float newGlowEffectSize = CurrentParticleSizeSize - _fireParticleSizeStep;
-        if (newGlowEffectSize >= _minimumParticleSize)
-        {
-            SetNewFireParticleSize(newGlowEffectSize);
-        }
+        _fireParticleSystem.minParticleSize = _minimumParticleSize + newStep * _fireParticleSizeStep;
     }
 
     private void Awake()
     {
         _fireParticleSystem = GetComponent<ParticleSystemRenderer>();
-    }
-
-    private void SetNewFireParticleSize(float newSize)
-    {
-        _fireParticleSystem.minParticleSize = newSize;
     }
 }

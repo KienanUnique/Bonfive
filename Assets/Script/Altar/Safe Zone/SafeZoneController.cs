@@ -2,7 +2,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(SafeZoneMechanics))]
 [RequireComponent(typeof(SafeZonePhysics))]
-public class SafeZoneController : MonoBehaviour
+public class SafeZoneController : MonoBehaviour, IStepsControllable
 {
     [SerializeField] private SafeZonePlayerDetector _safeZonePlayerDetector;
     private SafeZoneMechanics _safeZoneMechanics;
@@ -12,14 +12,10 @@ public class SafeZoneController : MonoBehaviour
     {
         _safeZonePhysics.SetupSteps(stepsCount, startStep);
     }
-    public void IncreaseSafeZone()
-    {
-        _safeZonePhysics.IncreaseForce();
-    }
 
-    public void DecreaseSafeZone()
+    public void ApplyNewStep(int newStep)
     {
-        _safeZonePhysics.DecreaseForce();
+        _safeZonePhysics.ApplyNewStep(newStep);
     }
 
     public void HealPlayer()

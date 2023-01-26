@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(AttackZoneVisual))]
 [RequireComponent(typeof(AttackZoneMechanics))]
 [RequireComponent(typeof(AttackZoneAudio))]
-public class AttackZoneController : MonoBehaviour
+public class AttackZoneController : MonoBehaviour, IStepsControllable
 {
     private AttackZoneEnemiesDetector _attackZoneEnemiesDetector;
     private AttackZoneVisual _attackZoneVisual;
@@ -16,15 +16,9 @@ public class AttackZoneController : MonoBehaviour
         _attackZoneEnemiesDetector.SetupSteps(stepsCount, startStep);
     }
 
-    public void IncreaseAttackZone()
+    public void ApplyNewStep(int newStep)
     {
-        _attackZoneEnemiesDetector.IncreaseDetectionRadius();
-    }
-
-    public void DecreaseAttackZone()
-    {
-        _attackZoneEnemiesDetector.DecreaseDetectionRadius();
-
+        _attackZoneEnemiesDetector.ApplyNewStep(newStep);
     }
 
     public void AttackEnemies()
@@ -56,5 +50,4 @@ public class AttackZoneController : MonoBehaviour
         _attackZoneMechanics.DamageEnemies(_attackZoneEnemiesDetector.EnemiesInAttackZone);
         _attackZoneEnemiesDetector.ClearEnemiesInAttackZoneList();
     }
-
 }

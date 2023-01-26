@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(ParticleSystem))]
-public class FireGlowEffectVisual : MonoBehaviour
+public class FireGlowEffectVisual : MonoBehaviour, IStepsControllable
 {
     [SerializeField] private float _minimumGlowEffectSize;
     [SerializeField] private float _maximumGlowEffectSize;
@@ -12,28 +12,12 @@ public class FireGlowEffectVisual : MonoBehaviour
     public void SetupSteps(int stepsCount, int startStep)
     {
         _glowEffectSizeStep = (_maximumGlowEffectSize - _minimumGlowEffectSize) / stepsCount;
-        SetNewGlowEffectSize(_minimumGlowEffectSize + startStep * _glowEffectSizeStep);
+        ApplyNewStep(startStep);
     }
 
-    public void IncreaseGlowEffectRadius()
+    public void ApplyNewStep(int newStep)
     {
-        float newGlowEffectSize = CurrentGlowEffectSize + _glowEffectSizeStep;
-        if (newGlowEffectSize <= _maximumGlowEffectSize)
-        {
-            SetNewGlowEffectSize(newGlowEffectSize);
-        }
-    }
-    public void DecreaseGlowEffectRadius()
-    {
-        float newGlowEffectSize = CurrentGlowEffectSize - _glowEffectSizeStep;
-        if (newGlowEffectSize >= _minimumGlowEffectSize)
-        {
-            SetNewGlowEffectSize(newGlowEffectSize);
-        }
-    }
-
-    private void SetNewGlowEffectSize(float newSize)
-    {
+        var newSize = _minimumGlowEffectSize + newStep * _glowEffectSizeStep;
         transform.localScale = new Vector3(newSize, newSize, transform.localScale.z);
     }
 }

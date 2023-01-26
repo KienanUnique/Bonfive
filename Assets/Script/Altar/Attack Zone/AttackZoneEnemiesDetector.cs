@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CircleCollider2D))]
-public class AttackZoneEnemiesDetector : MonoBehaviour
+public class AttackZoneEnemiesDetector : MonoBehaviour, IStepsControllable
 {
     [SerializeField] private float _minimumDetectionRadius;
     [SerializeField] private float _maximumDetectionRadius;
@@ -12,25 +12,13 @@ public class AttackZoneEnemiesDetector : MonoBehaviour
     public void SetupSteps(int stepsCount, int startStep)
     {
         _detectionRadiusStep = (_maximumDetectionRadius - _minimumDetectionRadius) / stepsCount;
-        _attackZoneEnemies.radius = _minimumDetectionRadius + _detectionRadiusStep * startStep;
+        ApplyNewStep(startStep);
     }
-    public void IncreaseDetectionRadius()
+    public void ApplyNewStep(int newStep)
     {
-        float newDetectorZoneRadius = _attackZoneEnemies.radius + _detectionRadiusStep;
-        if (newDetectorZoneRadius <= _maximumDetectionRadius)
-        {
-            _attackZoneEnemies.radius = newDetectorZoneRadius;
-        }
+        _attackZoneEnemies.radius = _minimumDetectionRadius + _detectionRadiusStep * newStep;
     }
 
-    public void DecreaseDetectionRadius()
-    {
-        float newDetectorZoneRadius = _attackZoneEnemies.radius - _detectionRadiusStep;
-        if (newDetectorZoneRadius >= _minimumDetectionRadius)
-        {
-            _attackZoneEnemies.radius = newDetectorZoneRadius;
-        }
-    }
     public void ClearEnemiesInAttackZoneList()
     {
         EnemiesInAttackZone.Clear();
