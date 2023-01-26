@@ -75,7 +75,7 @@ public class AltarController : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(_fadingFireStepSeconds);
-            if (_currentStep > 0)
+            if (_currentStep >= 0)
             {
                 _currentStep--;
                 UpdateStepsControllableObjects();

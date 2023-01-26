@@ -17,7 +17,15 @@ public class FireGlowEffectVisual : MonoBehaviour, IStepsControllable
 
     public void ApplyNewStep(int newStep)
     {
-        var newSize = _minimumGlowEffectSize + newStep * _glowEffectSizeStep;
+        float newSize;
+        if (newStep >= 0)
+        {
+            newSize = _minimumGlowEffectSize + newStep * _glowEffectSizeStep;
+        }
+        else
+        {
+            newSize = 0;
+        }
         transform.localScale = new Vector3(newSize, newSize, transform.localScale.z);
     }
 }

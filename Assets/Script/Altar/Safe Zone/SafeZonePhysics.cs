@@ -30,7 +30,18 @@ public class SafeZonePhysics : MonoBehaviour, IStepsControllable
 
     public void ApplyNewStep(int newStep)
     {
-        _collider.radius = _minimumColliderRadius + _colliderRadiusStep * newStep;
-        _pointEffector2D.forceMagnitude = _minimumForceMagnitude + _forceMagnitudeStep * newStep;
+        float newColliderRadius, newForceMagnitude;
+        if (newStep >= 0)
+        {
+            newColliderRadius = _minimumColliderRadius + _colliderRadiusStep * newStep;
+            newForceMagnitude = _minimumForceMagnitude + _forceMagnitudeStep * newStep;
+        }
+        else
+        {
+            newColliderRadius = _minimumColliderRadius;
+            newForceMagnitude = 0;
+        }
+        _collider.radius = newColliderRadius;
+        _pointEffector2D.forceMagnitude = newForceMagnitude;
     }
 }
