@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour
     public event OnAcceptedRequest AcceptedEnableMovingRequest;
     public event OnAcceptedRequest AcceptedDieRequest;
     public event OnAcceptedRequest AcceptedDisableAllActionsRequest;
+    private bool _isQuitting = false;
 
     public void InitializeEnemyParameters(Transform targetTransform)
     {
@@ -39,9 +40,14 @@ public class EnemyController : MonoBehaviour
         AllEnemiesManager.Registrate(this);
     }
 
+    private void OnApplicationQuit()
+    {
+        _isQuitting = true;
+    }
+
     private void OnDestroy()
     {
-        if (AllEnemiesManager.Instance != null)
+        if (!_isQuitting && AllEnemiesManager.Instance != null)
         {
             AllEnemiesManager.Remove(this);
         }

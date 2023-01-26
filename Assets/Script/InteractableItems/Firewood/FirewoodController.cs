@@ -14,6 +14,7 @@ namespace Assets.Script.InteractableItems.Firewood
         private FirewoodMovement _firewoodMovement;
         private FirewoodVisual _firewoodVisual;
         private bool _isDestroyed = false;
+        private bool _isQuitting = false;
 
         public void ProcessPickUp(Transform targetToFollow)
         {
@@ -54,9 +55,17 @@ namespace Assets.Script.InteractableItems.Firewood
         {
             AllFirewoodsManager.Registrate(this);
         }
+        private void OnApplicationQuit()
+        {
+            _isQuitting = true;
+        }
         private void OnDestroy()
         {
             _isDestroyed = true;
+            if (_isQuitting)
+            {
+                return;
+            }
             Destroyed?.Invoke(this);
             if (AllFirewoodsManager.Instance != null)
             {
