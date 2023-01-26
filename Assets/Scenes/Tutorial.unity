@@ -158,7 +158,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.20921485}
   m_AnchorMax: {x: 1, y: 0.9424809}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -50, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &16947131
 MonoBehaviour:
@@ -180,10 +180,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Use WASD to move\r\n\nUse [Space] to pick up a log\r\n\r\n\rUse [Space]
-    while holding a log to drop it into the bonfire\r\n\r\n\rDon\u2019t get close
-    to enemies\r\r\n\r\nKill enemies by dropping logs into the bonfire\r\n\r\r\nKill
-    as many enemies as you can before the time runs out\r\r\n\r\nGood luck!\r"
+  m_text: "Use [WASD] to move\r\nUse [Space] to pick up a log\r\n\rUse [Space] while
+    holding a log to drop it into the bonfire\r\n\r\n\rDon\u2019t get close to enemies\r\r\n\rKill
+    enemies by dropping logs into the bonfire\r\n\r\rKill as many enemies as you
+    can before the time runs out\r\r\n\r\nGood luck!\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4b9708aaa2090304e930a8d2f908b094, type: 2}
   m_sharedMaterial: {fileID: -2164240377161334953, guid: 4b9708aaa2090304e930a8d2f908b094,
@@ -211,7 +211,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 51.45
+  m_fontSize: 60
   m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 1

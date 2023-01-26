@@ -23,7 +23,7 @@ public class GameController : MonoBehaviour
 
     private enum GameEndings
     {
-        Win, Loose
+        Win, LooseDead, LooseTimeOut
     }
 
     private void Awake()
@@ -64,7 +64,7 @@ public class GameController : MonoBehaviour
 
     private void OnEndGameTimerFinish()
     {
-        EndGame(GameEndings.Loose);
+        EndGame(GameEndings.LooseTimeOut);
     }
     private void OnNeedSoulsCountReach()
     {
@@ -72,7 +72,7 @@ public class GameController : MonoBehaviour
     }
     private void OnPlayerDie()
     {
-        EndGame(GameEndings.Loose);
+        EndGame(GameEndings.LooseDead);
     }
 
     private void EndGame(GameEndings ending)
@@ -95,8 +95,11 @@ public class GameController : MonoBehaviour
             case GameEndings.Win:
                 _scenesSwitcher.LoadWinScene();
                 break;
-            case GameEndings.Loose:
-                _scenesSwitcher.LoadLooseScene();
+            case GameEndings.LooseDead:
+                _scenesSwitcher.LoadLooseDeadScene();
+                break;
+            case GameEndings.LooseTimeOut:
+                _scenesSwitcher.LoadLooseTimeOutScene();
                 break;
         }
     }
