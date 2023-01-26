@@ -23,7 +23,7 @@ where SpawnersType : ISpawner
 
     public static void Registrate(ObjectsType newObject)
     {
-        Instance.RegistrateObjectSpecialAction(newObject);
+        Instance.RegistrateObjectSpecialAction(newObject as Object);
         _spawningObjects.Add(newObject);
     }
 
@@ -34,7 +34,7 @@ where SpawnersType : ISpawner
 
     public static void Remove(ObjectsType removedObject)
     {
-        Instance.RemoveObjectActions(removedObject);
+        Instance.RemoveObjectActions(removedObject as Object);
         _spawningObjects.Remove(removedObject);
         if (!Instance._isAlreadyBalancingCount)
         {
@@ -47,8 +47,8 @@ where SpawnersType : ISpawner
         _spawners.Remove(spawner);
     }
 
-    protected virtual void RegistrateObjectSpecialAction(ObjectsType newObject) { }
-    protected virtual void RemoveObjectActions(ObjectsType removedObject) { }
+    protected virtual void RegistrateObjectSpecialAction(System.Object newObject) { }
+    protected virtual void RemoveObjectActions(System.Object removedObject) { }
 
     private void Awake()
     {

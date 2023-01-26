@@ -1,3 +1,6 @@
+using System;
+using UnityEngine;
+
 public class AllEnemiesManager : AllObjectsManager<EnemiesSpawnerController, EnemyController>
 {
     public delegate void OnEnemyDie();
@@ -24,26 +27,27 @@ public class AllEnemiesManager : AllObjectsManager<EnemiesSpawnerController, Ene
         }
     }
 
-    protected override void RegistrateObjectSpecialAction(EnemyController objectToAdd)
+    protected override void RegistrateObjectSpecialAction(System.Object newObject)
     {
+        var EnemyController = newObject as EnemyController;
         if (IsAllActionsEnabled)
         {
             if (IsMovingEnabled)
             {
-                objectToAdd.EnableMoving();
+                EnemyController.EnableMoving();
             }
             else
             {
-                objectToAdd.DisableMoving();
+                EnemyController.DisableMoving();
             }
         }
         else
         {
-            objectToAdd.DisableAllActions();
+            EnemyController.DisableAllActions();
         }
     }
 
-    protected virtual void RemoveObjectSpecialAction(EnemyController removedObject)
+    protected override void RemoveObjectActions(System.Object removedObject)
     {
         EnemyDie?.Invoke();
     }
