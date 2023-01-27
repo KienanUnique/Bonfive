@@ -252,9 +252,10 @@ GameObject:
   - component: {fileID: 6004331218594173190}
   - component: {fileID: 6865296507247663336}
   - component: {fileID: 223736585}
-  - component: {fileID: 7023139839760985867}
   - component: {fileID: 4107608872736392287}
   - component: {fileID: 8753580832043524773}
+  - component: {fileID: 8572028620682987696}
+  - component: {fileID: 3591645173309543242}
   m_Layer: 7
   m_Name: Skeletone
   m_TagString: Untagged
@@ -399,18 +400,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7307911, y: 0.26771212}
   m_EdgeRadius: 0
---- !u!114 &7023139839760985867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7878097244634604833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50d4658c870cbfe46a88450daed26762, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &4107608872736392287
 AudioSource:
   m_ObjectHideFlags: 0
@@ -554,3 +543,34 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c517125db8f03f54699ea908b913d638, type: 3}
   - {fileID: 8300000, guid: 7f5c1833d54d7a2458533f7bc81fd0a3, type: 3}
   _attackSoundsSoundLevel: 0.8
+--- !u!114 &8572028620682987696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7878097244634604833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fef1a9d819379d34eab306064d253132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3591645173309543242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7878097244634604833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd68f1ee127cd2b4ea6c5c761263a4d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyVisual: {fileID: 7385021968996266930}
+  _enemyAttackTriggerZonePlayerDetector: {fileID: 2154432374950685998}
+  _enemyAttackDamageZonePlayerDetector: {fileID: 3658086708541707122}
+  _nextWaypointDistance: 1
+  _pathUpdateIntervalSeconds: 1
+  _attackCooldownSeconds: 3
+  _secondsBeforeDestroy: 5

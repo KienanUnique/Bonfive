@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemiesSpawnerSpawnZoneHandler : MonoBehaviour
 {
     private BoxCollider2D _spawnZone;
-    private List<EnemyController> _enemyControllers = new List<EnemyController>();
-    public bool IsSpawnZoneEmpty => _enemyControllers.Count == 0;
+    private List<EnemyInterfaceObject> _enemyInterfaceObjects = new List<EnemyInterfaceObject>();
+    public bool IsSpawnZoneEmpty => _enemyInterfaceObjects.Count == 0;
 
     private void Awake()
     {
@@ -15,16 +15,16 @@ public class EnemiesSpawnerSpawnZoneHandler : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.TryGetComponent(out EnemyController enemyController) && !_enemyControllers.Contains(enemyController))
+        if (other.gameObject.TryGetComponent(out EnemyInterfaceObject enemyController) && !_enemyInterfaceObjects.Contains(enemyController))
         {
-            _enemyControllers.Add(enemyController);
+            _enemyInterfaceObjects.Add(enemyController);
         }
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.TryGetComponent(out EnemyController enemyController) && _enemyControllers.Contains(enemyController))
+        if (other.gameObject.TryGetComponent(out EnemyInterfaceObject enemyInterfaceObject) && _enemyInterfaceObjects.Contains(enemyInterfaceObject))
         {
-            _enemyControllers.Remove(enemyController);
+            _enemyInterfaceObjects.Remove(enemyInterfaceObject);
         }
     }
 }

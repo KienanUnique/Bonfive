@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(CountDownTimer))]
 [RequireComponent(typeof(AllFirewoodsManager))]
-[RequireComponent(typeof(AllEnemiesManager))]
+[RequireComponent(typeof(AllSkeletonsManager))]
 public class GameController : MonoBehaviour
 {
     [SerializeField] private PlayerController _player;
@@ -18,7 +18,7 @@ public class GameController : MonoBehaviour
     private EnemiesSoulsCounter _enemiesSoulsCounter;
     private CountDownTimer _endGameTimer;
     private AllFirewoodsManager _allFirewoodsManager;
-    private AllEnemiesManager _allEnemiesManager;
+    private AllSkeletonsManager _allSkeletonsManager;
     private bool _isGameNotFinished = true;
 
     private enum GameEndings
@@ -32,7 +32,7 @@ public class GameController : MonoBehaviour
         _enemiesSoulsCounter = new EnemiesSoulsCounter();
         _allFirewoodsManager = GetComponent<AllFirewoodsManager>();
         _endGameTimer = GetComponent<CountDownTimer>();
-        _allEnemiesManager = GetComponent<AllEnemiesManager>();
+        _allSkeletonsManager = GetComponent<AllSkeletonsManager>();
     }
 
     private void Start()
@@ -42,7 +42,7 @@ public class GameController : MonoBehaviour
 
     private void OnEnable()
     {
-        _allEnemiesManager.EnemyDie += OnEnemieRemove;
+        _allSkeletonsManager.EnemyDie += OnEnemieRemove;
         _enemiesSoulsCounter.NeedSoulsCountReach += OnNeedSoulsCountReach;
         _endGameTimer.Finish += OnEndGameTimerFinish;
         _player.Die += OnPlayerDie;
@@ -53,7 +53,7 @@ public class GameController : MonoBehaviour
 
     private void OnDisable()
     {
-        _allEnemiesManager.EnemyDie -= OnEnemieRemove;
+        _allSkeletonsManager.EnemyDie -= OnEnemieRemove;
         _enemiesSoulsCounter.NeedSoulsCountReach -= OnNeedSoulsCountReach;
         _endGameTimer.Finish -= OnEndGameTimerFinish;
         _player.Die -= OnPlayerDie;
@@ -80,8 +80,8 @@ public class GameController : MonoBehaviour
         if (_isGameNotFinished)
         {
             _allFirewoodsManager.DisableSpawning();
-            _allEnemiesManager.DisableSpawning();
-            _allEnemiesManager.DisableAllACtionsForAllEnemies();
+            _allSkeletonsManager.DisableSpawning();
+            _allSkeletonsManager.DisableAllACtionsForAllEnemies();
             _isGameNotFinished = false;
             StartCoroutine(LoadEndingScene(ending));
         }

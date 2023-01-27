@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class AttackZoneMechanics : MonoBehaviour
 {
-    public void DamageEnemies(List<EnemyController> enemies)
+    public void DamageEnemies(List<EnemyInterfaceObject> enemies)
     {
         foreach (var enemy in enemies)
         {

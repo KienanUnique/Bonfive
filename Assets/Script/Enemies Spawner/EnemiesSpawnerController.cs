@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class EnemiesSpawnerController : MonoBehaviour, ISpawner
+public abstract class EnemiesSpawnerController : MonoBehaviour, ISpawner
 {
     [SerializeField] private GameObject[] _enemiesVariations;
     [SerializeField] private float _spawnCooldownSeconds;
@@ -10,16 +10,17 @@ public class EnemiesSpawnerController : MonoBehaviour, ISpawner
     private GameObject RandomEnemy => _enemiesVariations[Random.Range(0, _enemiesVariations.Length)];
     private bool _isUnderCooldown = false;
 
+    protected abstract void RegistrateAction();
+    protected abstract void RemoveRegistratationAction();
+
     private void Start()
     {
-        AllEnemiesManager.Registrate(this);
+        RegistrateAction();
     }
 
     private void OnDestroy()
     {
-        if(AllEnemiesManager.Instance != null){
-            AllEnemiesManager.Remove(this);
-        }
+        RemoveRegistratationAction();
     }
 
     private IEnumerator StartCooldown()
@@ -34,9 +35,9 @@ public class EnemiesSpawnerController : MonoBehaviour, ISpawner
         if (IsReadyToUse)
         {
             GameObject spawnedEnemy = Instantiate(RandomEnemy, transform.position, Quaternion.identity);
-            if (spawnedEnemy.TryGetComponent<EnemyController>(out EnemyController enemyController))
+            if (spawnedEnemy.TryGetComponent<EnemyInterfaceObject>(out EnemyInterfaceObject enemyInterfaceObject))
             {
-                enemyController.InitializeEnemyParameters(GameController.PlayerTransform);
+                enemyInterfaceObject.InitializeEnemyParameters(GameController.PlayerTransform);
             }
             StartCoroutine(StartCooldown());
         }
