@@ -1,3 +1,4 @@
+using System;
 using Assets.Script.InteractableItems.Firewood;
 using UnityEngine;
 
@@ -41,6 +42,20 @@ namespace Assets.Script.Player
             return _playerInteractionWithWorld.LooseCurrentFirewood();
         }
 
+        public void ProcessGameWin()
+        {
+            NeedProcesCharacterControl = false;
+            _playerVisual.PlayWinAnimation();
+            _playerMovement.DisableMoving();
+            _playerInteractionWithWorld.StopInterracrtingWithCurrentObjects();
+        }
+
+        public void OnAnimationUseActionMomentStart()
+        {
+            _playerInteractionWithWorld.TryInterractWithObjectsInReachableZone();
+            _playerAudio.PlayInteractWitnItemSound();
+        }
+
         private void Awake()
         {
             _mainControls = new Maincontrols();
@@ -81,8 +96,6 @@ namespace Assets.Script.Player
             if (NeedProcesCharacterControl)
             {
                 _playerVisual.StartUseActionAnimation();
-                _playerInteractionWithWorld.TryInterractWithObjectsInReachableZone();
-                _playerAudio.PlayInteractWitnItemSound();
             }
         }
         private void OnEnable()

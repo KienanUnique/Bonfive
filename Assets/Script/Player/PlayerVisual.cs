@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,6 +14,7 @@ namespace Assets.Script.Player
         private static readonly int IsMovingHash = Animator.StringToHash("IsMoving");
         private static readonly int UseActionHash = Animator.StringToHash("UseAction");
         private static readonly int TakeHitHash = Animator.StringToHash("Take Hit");
+        private static readonly int WinHash = Animator.StringToHash("Win");
         private bool _isFacingRight;
         private bool _isMoving;
         private bool _isDead = false;
@@ -55,7 +57,8 @@ namespace Assets.Script.Player
 
         public void StartDieAnimation()
         {
-            if(_isDead){
+            if (_isDead)
+            {
                 return;
             }
             _isDead = true;
@@ -74,7 +77,8 @@ namespace Assets.Script.Player
 
         public void StartUseActionAnimation()
         {
-            if(_isDead){
+            if (_isDead)
+            {
                 return;
             }
             _animator.SetTrigger(UseActionHash);
@@ -82,7 +86,8 @@ namespace Assets.Script.Player
 
         public void StartTakeHitAnimation()
         {
-            if(_isDead){
+            if (_isDead)
+            {
                 return;
             }
             _animator.SetTrigger(TakeHitHash);
@@ -90,10 +95,24 @@ namespace Assets.Script.Player
 
         public void PlayUseAnimation(InputAction.CallbackContext callbackContext)
         {
-            if(_isDead){
+            if (_isDead)
+            {
                 return;
             }
             _animator.SetTrigger(UseActionHash);
+        }
+
+        public void PlayWinAnimation()
+        {
+            if (_isDead)
+            {
+                return;
+            }
+            _animator.ResetTrigger(RespawnHash);
+            _animator.ResetTrigger(UseActionHash);
+            _animator.ResetTrigger(TakeHitHash);
+            _animator.SetBool(IsMovingHash, false);
+            _animator.SetTrigger(WinHash);
         }
     }
 }

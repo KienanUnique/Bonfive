@@ -54,7 +54,7 @@ MonoBehaviour:
   _maximumEnemiesCount: 10
   _maximumFirewoodsCount: 8
   _soulsCountForWinning: 50
-  _loadEndingSceneDelaySeconds: 4
+  _loadEndingSceneDelaySeconds: 2
 --- !u!114 &3882686705926474250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eab83e6bfb008c4daeab73eaf2d6465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _endWaitSeconds: 300
+  _endWaitSeconds: 360
 --- !u!114 &5389763278699518436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99e3f2aee877cbf49aed24dfb6ea58ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _requaredCount: 0
+  _requaredCount: 10
 --- !u!114 &2979856443039697982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35e084d02d768d6469ff41e0bd096a37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _requaredCount: 0
+  _requaredCount: 3
 --- !u!114 &1906740908444572318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,4 +119,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25a91df1540d064c8fb75375727dc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _requaredCount: 10
+  _requaredCount: 2

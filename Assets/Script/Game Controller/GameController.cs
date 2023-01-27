@@ -96,6 +96,7 @@ public class GameController : MonoBehaviour
             _allMushroomsManager.DisableAllACtionsForAllEnemies();
             _allFlyingEyesManager.DisableSpawning();
             _allFlyingEyesManager.DisableAllACtionsForAllEnemies();
+            _player.ProcessGameWin();
             _isGameNotFinished = false;
             StartCoroutine(LoadEndingScene(ending));
         }
