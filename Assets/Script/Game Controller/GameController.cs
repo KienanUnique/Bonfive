@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(CountDownTimer))]
 [RequireComponent(typeof(AllFirewoodsManager))]
 [RequireComponent(typeof(AllSkeletonsManager))]
+[RequireComponent(typeof(AllMushroomsManager))]
 public class GameController : MonoBehaviour
 {
     [SerializeField] private PlayerController _player;
@@ -19,6 +20,7 @@ public class GameController : MonoBehaviour
     private CountDownTimer _endGameTimer;
     private AllFirewoodsManager _allFirewoodsManager;
     private AllSkeletonsManager _allSkeletonsManager;
+    private AllMushroomsManager _allMushroomsManager;
     private bool _isGameNotFinished = true;
 
     private enum GameEndings
@@ -33,6 +35,7 @@ public class GameController : MonoBehaviour
         _allFirewoodsManager = GetComponent<AllFirewoodsManager>();
         _endGameTimer = GetComponent<CountDownTimer>();
         _allSkeletonsManager = GetComponent<AllSkeletonsManager>();
+        _allMushroomsManager = GetComponent<AllMushroomsManager>();
     }
 
     private void Start()
@@ -43,6 +46,7 @@ public class GameController : MonoBehaviour
     private void OnEnable()
     {
         _allSkeletonsManager.EnemyDie += OnEnemieRemove;
+        _allMushroomsManager.EnemyDie += OnEnemieRemove;
         _enemiesSoulsCounter.NeedSoulsCountReach += OnNeedSoulsCountReach;
         _endGameTimer.Finish += OnEndGameTimerFinish;
         _player.Die += OnPlayerDie;
@@ -54,6 +58,7 @@ public class GameController : MonoBehaviour
     private void OnDisable()
     {
         _allSkeletonsManager.EnemyDie -= OnEnemieRemove;
+        _allMushroomsManager.EnemyDie -= OnEnemieRemove;
         _enemiesSoulsCounter.NeedSoulsCountReach -= OnNeedSoulsCountReach;
         _endGameTimer.Finish -= OnEndGameTimerFinish;
         _player.Die -= OnPlayerDie;
@@ -82,6 +87,8 @@ public class GameController : MonoBehaviour
             _allFirewoodsManager.DisableSpawning();
             _allSkeletonsManager.DisableSpawning();
             _allSkeletonsManager.DisableAllACtionsForAllEnemies();
+            _allMushroomsManager.DisableSpawning();
+            _allMushroomsManager.DisableAllACtionsForAllEnemies();
             _isGameNotFinished = false;
             StartCoroutine(LoadEndingScene(ending));
         }
