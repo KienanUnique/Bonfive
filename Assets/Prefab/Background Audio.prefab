@@ -145,4 +145,4 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 37feed6d70593e74cb333ea1b3deb771, type: 3}
   - {fileID: 8300000, guid: 18bd86fda2dd24149acb322d5732bd68, type: 3}
   - {fileID: 8300000, guid: e7251e41ef06d8f46a18c7cc9d7cf9e7, type: 3}
-  _backgroundMusicSoundLevel: 0.35
+  _backgroundMusicSoundLevel: 0.3

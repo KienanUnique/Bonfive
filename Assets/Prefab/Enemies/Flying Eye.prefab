@@ -507,9 +507,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stepSounds:
-  - {fileID: 8300000, guid: 877156459d1e4d94eb1cd8fb8b7c0b4b, type: 3}
-  - {fileID: 8300000, guid: 2811fd89d2a5b844ebda829c7e53cf45, type: 3}
-  - {fileID: 8300000, guid: d8904d04c5d878a469512de1210fd282, type: 3}
+  - {fileID: 8300000, guid: e44e9d3f1fe987b428f078a6a47434cb, type: 3}
+  - {fileID: 8300000, guid: b153dff616907db4ba40776d16164965, type: 3}
+  - {fileID: 8300000, guid: 794c72629ee3c294da95049261c7f277, type: 3}
   _stepsSoundLevel: 1
   _dieSounds:
   - {fileID: 8300000, guid: 0a76f63836bcca74b87c750e8cfe0674, type: 3}
