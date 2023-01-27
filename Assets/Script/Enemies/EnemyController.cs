@@ -1,6 +1,7 @@
 using UnityEngine;
 using Pathfinding;
 using System.Collections;
+using Assets.Script.Player;
 
 [RequireComponent(typeof(EnemyInterfaceObject))]
 [RequireComponent(typeof(EnemyMoving))]
@@ -31,6 +32,10 @@ public abstract class EnemyController : MonoBehaviour
     private bool _isQuitting = false;
     protected abstract void RegistrateAction();
     protected abstract void RemoveRegistratationAction();
+    protected virtual void SpecialAttack(PlayerController player)
+    {
+        _enemyCharacter.DamagePlayer(player);
+    }
 
     private void OnApplicationQuit()
     {
@@ -167,7 +172,7 @@ public abstract class EnemyController : MonoBehaviour
         _enemyAudio.PlayAttackSound();
         if (_enemyAttackDamageZonePlayerDetector.IsPlayerInside)
         {
-            _enemyCharacter.DamagePlayer(_enemyAttackDamageZonePlayerDetector.Player);
+            SpecialAttack(_enemyAttackDamageZonePlayerDetector.Player);
         }
     }
 

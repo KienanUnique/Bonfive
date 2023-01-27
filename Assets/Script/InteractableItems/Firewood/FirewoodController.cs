@@ -10,6 +10,7 @@ namespace Assets.Script.InteractableItems.Firewood
     {
         public delegate void OnDestroyedInFire(FirewoodController destroyedFirewood);
         public event OnDestroyedInFire Destroyed;
+        public Vector2 CurrentPosition => transform.position;
         private Rigidbody2D _rigidbody2D;
         private FirewoodMovement _firewoodMovement;
         private FirewoodVisual _firewoodVisual;
@@ -37,6 +38,15 @@ namespace Assets.Script.InteractableItems.Firewood
             _firewoodVisual.ProcessDropDown();
             _rigidbody2D.simulated = true;
             _rigidbody2D.velocity = Vector2.zero;
+        }
+
+        public void ProcessHit(Vector2 hitVelocity)
+        {
+            if (_isDestroyed)
+            {
+                return;
+            }
+            _rigidbody2D.velocity = hitVelocity;
         }
 
         public void DestroyInFire()

@@ -1,3 +1,4 @@
+using Assets.Script.InteractableItems.Firewood;
 using UnityEngine;
 
 namespace Assets.Script.Player
@@ -33,6 +34,11 @@ namespace Assets.Script.Player
             _playerAudio.PlayHitSound();
             _playerVisual.StartTakeHitAnimation();
             _playerCharacter.TakeHit(countOfHP);
+        }
+
+        public FirewoodController LooseFirewood()
+        {
+            return _playerInteractionWithWorld.LooseCurrentFirewood();
         }
 
         private void Awake()

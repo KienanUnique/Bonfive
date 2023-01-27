@@ -29,6 +29,16 @@ namespace Assets.Script.Player
             }
         }
 
+        public FirewoodController LooseCurrentFirewood()
+        {
+            var lostFirewood = _pickedUpFirewood;
+            if (_pickedUpFirewood != null)
+            {
+                DropFirewood();
+            }
+            return lostFirewood;
+        }
+
         private void PickUpFirewood()
         {
             _pickedUpFirewood = _interactebleObjectsDetector.FirewoodInReachebleZone;

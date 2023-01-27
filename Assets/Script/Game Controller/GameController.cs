@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(AllFirewoodsManager))]
 [RequireComponent(typeof(AllSkeletonsManager))]
 [RequireComponent(typeof(AllMushroomsManager))]
+[RequireComponent(typeof(AllFlyingEyesManager))]
 public class GameController : MonoBehaviour
 {
     [SerializeField] private PlayerController _player;
@@ -21,6 +22,7 @@ public class GameController : MonoBehaviour
     private AllFirewoodsManager _allFirewoodsManager;
     private AllSkeletonsManager _allSkeletonsManager;
     private AllMushroomsManager _allMushroomsManager;
+    private AllFlyingEyesManager _allFlyingEyesManager;
     private bool _isGameNotFinished = true;
 
     private enum GameEndings
@@ -36,6 +38,7 @@ public class GameController : MonoBehaviour
         _endGameTimer = GetComponent<CountDownTimer>();
         _allSkeletonsManager = GetComponent<AllSkeletonsManager>();
         _allMushroomsManager = GetComponent<AllMushroomsManager>();
+        _allFlyingEyesManager = GetComponent<AllFlyingEyesManager>();
     }
 
     private void Start()
@@ -47,6 +50,7 @@ public class GameController : MonoBehaviour
     {
         _allSkeletonsManager.EnemyDie += OnEnemieRemove;
         _allMushroomsManager.EnemyDie += OnEnemieRemove;
+        _allFlyingEyesManager.EnemyDie += OnEnemieRemove;
         _enemiesSoulsCounter.NeedSoulsCountReach += OnNeedSoulsCountReach;
         _endGameTimer.Finish += OnEndGameTimerFinish;
         _player.Die += OnPlayerDie;
@@ -59,6 +63,7 @@ public class GameController : MonoBehaviour
     {
         _allSkeletonsManager.EnemyDie -= OnEnemieRemove;
         _allMushroomsManager.EnemyDie -= OnEnemieRemove;
+        _allFlyingEyesManager.EnemyDie -= OnEnemieRemove;
         _enemiesSoulsCounter.NeedSoulsCountReach -= OnNeedSoulsCountReach;
         _endGameTimer.Finish -= OnEndGameTimerFinish;
         _player.Die -= OnPlayerDie;
@@ -89,6 +94,8 @@ public class GameController : MonoBehaviour
             _allSkeletonsManager.DisableAllACtionsForAllEnemies();
             _allMushroomsManager.DisableSpawning();
             _allMushroomsManager.DisableAllACtionsForAllEnemies();
+            _allFlyingEyesManager.DisableSpawning();
+            _allFlyingEyesManager.DisableAllACtionsForAllEnemies();
             _isGameNotFinished = false;
             StartCoroutine(LoadEndingScene(ending));
         }
