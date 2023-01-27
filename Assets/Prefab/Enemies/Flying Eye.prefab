@@ -547,8 +547,8 @@ MonoBehaviour:
   _enemyVisual: {fileID: 7385021968996266930}
   _enemyAttackTriggerZonePlayerDetector: {fileID: 2154432374950685998}
   _enemyAttackDamageZonePlayerDetector: {fileID: 3658086708541707122}
-  _nextWaypointDistance: 1
-  _pathUpdateIntervalSeconds: 1
+  _nextWaypointDistance: 0.5
+  _pathUpdateIntervalSeconds: 0.1
   _attackCooldownSeconds: 3
   _secondsBeforeDestroy: 6
   _hitPower: 15
