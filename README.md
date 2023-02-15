@@ -67,8 +67,8 @@ There are three types of enemies in the game:
 
 
 ##  Useful Links
-* Link to itch.io of a project where you can play Bonfive in the browser or download builds: [https://kitchen-in-the-dungeon.itch.io/bonfive](https://kitchen-in-the-dungeon.itch.io/bonfive) 
-* Link to Youtube video with the full walkthrough of the level: [https://youtu.be/LooMmnwHKJc](https://youtu.be/LooMmnwHKJc) 
+* [Link to itch.io of a project where you can play Bonfive in the browser or download builds](https://kitchen-in-the-dungeon.itch.io/bonfive) 
+* [Link to Youtube video with the full walkthrough of the level](https://youtu.be/LooMmnwHKJc) 
 
 ---
 
