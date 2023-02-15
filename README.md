@@ -9,7 +9,7 @@ It is a top-down arcade game in which you have to destroy enemies by putting woo
 
 The player wins if he manages to destroy the required number of opponents in the allotted time.
 
-![image](https://drive.google.com/uc?export=view&id=1-fdoOlORnx_pEZsiHe4ZmhzUWm38Fg9S)
+![image](https://drive.google.com/uc?export=view&id=1-bxU9IAAJhUuMGcKFZJ9qxIpoEDCw2UU)
 
 The player loses if time runs out before he has had time to destroy enough opponents, or if the opponents reduce his HP to zero.
 
@@ -19,7 +19,6 @@ Around the altars there is a safe zone, inside which enemies cannot pass. Its si
 
 If you don't put firewood into the fire for a long time, then it'll die out, and the safe zone stops working. A fire can be rekindled simply by putting a log into it.
 
-![image](https://drive.google.com/uc?export=view&id=1-bxU9IAAJhUuMGcKFZJ9qxIpoEDCw2UU)
 There are three types of enemies in the game:
 * Skeleton
     * **Damage:** Medium
@@ -82,7 +81,7 @@ There are three types of enemies in the game:
 
 Игрок выигрывает, если успевает уничтожить нужное количество противников в отведенное на это время.
 
-![image](https://drive.google.com/uc?export=view&id=1-fdoOlORnx_pEZsiHe4ZmhzUWm38Fg9S)
+![image](https://drive.google.com/uc?export=view&id=1-bxU9IAAJhUuMGcKFZJ9qxIpoEDCw2UU)
 
 Игрок проигрывает, если время заканчивается раньше, чем он успел уничтожить достаточное количество противников, или если противники снижают его HP до нуля.
 
@@ -91,8 +90,6 @@ There are three types of enemies in the game:
 Вокруг алтарей существует безопасная зона, внутрь которой не могут пройти противники. Ее размеры зависят от степени горения костра: чем ярче горит костер - тем больше безопасная зона.
 
 Если долго не подкладывать в костры дрова, то они затухают, а безопасная зона перестает действовать. Костер можно разжечь заново просто подложив в него полено.
-
-![image](https://drive.google.com/uc?export=view&id=1-bxU9IAAJhUuMGcKFZJ9qxIpoEDCw2UU)
 
 В игре существует 3 вида противников:
 * Скелет
